@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shubhransh Gupta|CV|Portfolio </title>
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".full_info_wrap .tabs ul li").click(function(){
+				$(".full_info_wrap .tabs ul li").removeClass("active");
+				$(this).addClass("active");
+
+				var datali = $(this).attr("data-li");
+
+				$(".full_info_item").hide();
+
+				if(datali == "experience"){
+					$(".experience").show();
+				}
+				else if(datali == "education"){
+					$(".education").show();
+				}
+				else if(datali == "contact"){
+					$(".contact").show();
+				}
+				else{
+					console.log("Loding...");
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	
+<div class="wrapper">
+   <div class="resume">
+      
+       <div class="profile_info">
+            <div class="profile_img">
+              <img src="profile_pic.png" alt="profile_img">
+            </div>
+            <div class="profile_data">
+                <p class="name">Shubhransh Gupta</p>
+                <span><i class="fas fa-map-marker-alt"></i> Bengaluru</span>
+            </div>
+            <div class="view_more_btn">
+              <a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank"><span class="iconify" data-icon="brandico:linkedin-rect" data-inline="false"></span>
+             </a>
+            </div>
+        </div>  
+      
+       <div class="skills">
+	       <div class="title">
+	          Skills
+	       </div>
+	       <ul>
+	         <li>
+	           <div class="skill_item html">
+	             <div class="icon"></div>
+	             <div class="text">HTML</div>
+	           </div>
+	         </li>
+	         <li>
+	           <div class="skill_item css">
+	             <div class="icon"></div>
+	             <div class="text">CSS</div>
+	           </div>
+	         </li>
+	         <li>
+	           <div class="skill_item js">
+	             <div class="icon"></div>
+	             <div class="text">Javascript</div>
+	           </div>
+	         </li>
+	         <li>
+	           <div class="skill_item php">
+	             <span class="iconify" data-icon="logos:php" data-inline="false"></span>
+	             <div class="text">PHP </div>
+	           </div>
+	         </li>
+	         <li>
+	           <div class="skill_item php">
+	             <span class="iconify" data-icon="logos:php" data-inline="false"></span>
+	             <div class="text">PHP Frameworks</div>
+	           </div>
+	         </li>
+	         <li>
+	           <div class="skill_item node">
+	             <span class="iconify" data-icon="mdi-nodejs" data-inline="false"></span>
+	             <div class="text">NodeJS</div>
+	           </div>
+	         </li>
+	       </ul>
+	    </div>
+     
+        <div class="full_info_wrap">
+            <div class="tabs">
+                <ul>
+                    <li data-li="experience" class="active">Experience</li>
+                    <li data-li="education">Education</li>
+                    <li data-li="contact">Contact</li>  
+                </ul>  
+            </div>  
+            
+            <div class="full_info">
+                <div class="full_info_item experience">
+                    <div class="title">WORK EXPERIENCE</div>
+
+                    <div class="info_wrap">
+                    	<ul>
+                    		<li>
+                    			<div class="sub_title">
+                    				April 2020 - June 2020
+                    			</div>
+								
+								<div class="info_item">
+									<div class="info_title">
+										<b>FlatsAndFlatmates</b>
+									</div>
+									<div class="data">
+										Managed the Frontend with the latest techs and tools, whole backend service, and hosted on AWS. I got myself aware of version control tools (source tree) and version control (bitbucket). Learned 6-7 services of AWS. Overall it was an amazing journey.
+									</div>
+								</div>
+                    		</li>
+                    		<li>
+                    			<div class="sub_title">
+                    				March 2020- April 2020
+                    			</div>
+								
+								<div class="info_item">
+									<div class="info_title">
+										<b>Go Gaga</b>
+									</div>
+									<div class="data">
+										Worked here on LAMP stack as PHP developer.I also got myself aware of version control tools (source tree) and version control (bitbucket).
+									</div>
+								</div>
+                    		</li>
+                    	<!--	<li>
+                    			<div class="sub_title">
+                    				2017 - Present
+                    			</div>
+								
+								<div class="info_item">
+									<div class="info_title">
+										Google
+									</div>
+									<div class="data">
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae aliquam nesciunt tempora fugit, doloremque pariatur.
+									</div>
+								</div>
+                    		</li> -->
+                    	</ul>
+                    </div>
+                </div>  
+                <div class="full_info_item education" style="display: none;">
+                  <div class="title">EDUCATION</div>
+
+                  <div class="info_wrap">
+                    	<ul>
+                    		<li>
+                    			<div class="sub_title">
+                    				2017 - Present
+                    			</div>
+								
+								<div class="info_item">
+									<div class="info_title">
+										B.E Computer Science | BNM Institute of Technology, Bangalore 
+									</div>
+									<div class="data">
+										PASSING YEAR: 2021 
+										CGPA: 8.91 
+									</div>
+								</div>
+                    		</li><li>
+                    			<div class="sub_title">
+                    				2015 - 2016 	
+                    			</div>
+								
+								<div class="info_item">
+									<div class="info_title">
+										<b> 12th</b> | Ajmani International School, Lakhimpur, UP (CBSE) 
+									</div>
+									<div class="data">
+										PASSING YEAR:2016 
+										PERCENTAGE: 93.4 %
+										CBSE Board 
+									</div>
+								</div>
+                    		</li>
+                    		<li>
+                    			<div class="sub_title">
+                    				2013 - 2014
+                    			</div>
+								
+								<div class="info_item">
+									<div class="info_title">
+										<b>10th </b>| Ajmani International School, Lakhimpur, UP (CBSE)
+									</div>
+									<div class="data">
+										PASSING YEAR:2014 
+										CGPA: 9.6
+										CBSE Board 
+									</div>
+								</div>
+                    		</li>
+                    		
+                    	</ul>
+                    </div>
+                </div>  
+                <div class="full_info_item contact" style="display: none;">
+                  <div class="title">CONTACT</div>
+
+                  <div class="info_wrap">
+                  	<ul>
+                  		<li>
+                  			<span class="info_q">Email</span>
+                  			<span class="info_a">gupta.subhransh@gmail.com</span>
+                  		</li>
+                  		<li>
+                  			<span class="info_q">Phone</span>
+                  			<span class="info_a">+91 8299300084</span>
+                  		</li>
+                  		<li>
+                  			<span class="info_q">Website</span>
+                  			<a href="https://guptasubhransh.wixsite.com/portfolio/" target="_blank"><span class="info_a"> <span class="iconify" data-icon="emojione:letter-s" data-inline="false"></span> </span>/Shubhransh_Gupta</a>
+                  		</li>
+                  		
+                  		<li>
+                  			<span class="info_q">Linkedin</span>
+                  			<a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank"><span class="iconify" data-icon="brandico:linkedin-rect" data-inline="false"></span> /Shubhransh_Gupta</a>
+                  			
+                  		</li>
+                  		<li>
+                  			<span class="info_q">Facebook</span>
+                  			<a href="https://www.facebook.com/subhransh.gupta" target="_blank"><span class="iconify" data-icon="logos:facebook" data-inline="false"></span>/Shubhransh_Gupta</a>
+                  			
+                  		</li>
+                  		
+                  		
+                  		
+                  	</ul>
+                  </div>
+                </div>  
+            </div> 
+        </div>
+     
+   </div>
+</div>
+
+</body>
+</html>
