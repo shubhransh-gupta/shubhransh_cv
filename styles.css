@@ -1236,21 +1236,62 @@ h2.landing-info-h2 {
   font-size: 12px;
   font-weight: 700;
   backdrop-filter: blur(12px);
+  animation: chipFloat 4.8s ease-in-out infinite;
 }
 
 .chip-one {
-  top: 120px;
-  left: -20px;
+  top: 105px;
+  left: -55px;
 }
 
 .chip-two {
-  top: 310px;
-  right: -45px;
+  top: 95px;
+  right: -58px;
+  animation-delay: -0.8s;
 }
 
 .chip-three {
-  right: 20px;
-  bottom: 95px;
+  top: 245px;
+  left: -78px;
+  animation-delay: -1.4s;
+}
+
+.chip-four {
+  top: 250px;
+  right: -90px;
+  animation-delay: -2s;
+}
+
+.chip-five {
+  bottom: 165px;
+  left: -46px;
+  animation-delay: -2.6s;
+}
+
+.chip-six {
+  right: -52px;
+  bottom: 158px;
+  animation-delay: -3.2s;
+}
+
+.chip-seven {
+  bottom: 70px;
+  left: 72px;
+  animation-delay: -3.8s;
+}
+
+.chip-eight {
+  right: 62px;
+  bottom: 68px;
+  animation-delay: -4.4s;
+}
+
+@keyframes chipFloat {
+  50% {
+    transform: translateY(-10px);
+    border-color: rgba(194, 164, 255, 0.48);
+    box-shadow: 0 16px 42px rgba(194, 164, 255, 0.18);
+  }
 }
 
 .about-section {
@@ -2120,5 +2161,88 @@ h2.landing-info-h2 {
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Phone-only hero override */
+.character-stage {
+  width: 390px;
+  height: 620px;
+}
+
+.device-frame {
+  right: auto;
+  bottom: 52px;
+  left: 50%;
+  width: 248px;
+  height: 470px;
+  border-radius: 52px;
+  transform: translateX(-50%) rotateY(-14deg) rotateX(5deg);
+  animation: phoneHeroFloat 4.8s ease-in-out infinite;
+}
+
+@keyframes phoneHeroFloat {
+  50% {
+    transform: translateX(-50%) rotateY(14deg) rotateX(1deg) translateY(-20px);
+  }
+}
+
+.device-notch {
+  top: 18px;
+  width: 88px;
+  height: 20px;
+}
+
+.device-screen {
+  inset: 58px 28px 30px;
+  gap: 18px;
+  border-radius: 32px;
+}
+
+.screen-line {
+  height: 10px;
+}
+
+.screen-pill {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.phone-orbit {
+  border-color: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 0 44px rgba(194, 164, 255, 0.16);
+  animation: orbitPulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes orbitPulse {
+  to {
+    opacity: 0.55;
+    transform: rotate(22deg) scale(1.05);
+  }
+}
+
+.floating-chip {
+  z-index: 5;
+}
+
+.chip-one {
+  top: 105px;
+  left: -55px;
+}
+
+.chip-two {
+  top: 95px;
+  right: -58px;
+}
+
+.chip-three {
+  top: 245px;
+  left: -78px;
+}
+
+@media only screen and (max-width: 600px) {
+  .device-frame {
+    width: 210px;
+    height: 400px;
   }
 }
