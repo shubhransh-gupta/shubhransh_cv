@@ -944,6 +944,7 @@ li {
   max-width: var(--cMaxWidth);
   height: var(--vh);
   margin: auto;
+  overflow: hidden;
 }
 
 .landing-container {
@@ -1012,7 +1013,7 @@ h2.landing-info-h2 {
 }
 
 .character-model {
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 0;
   z-index: 5;
