@@ -1,0 +1,78 @@
+<svg width="1584" height="396" viewBox="0 0 1584 396" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGlowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1170 118) rotate(153) scale(610 270)">
+      <stop stop-color="#B78CFF" stop-opacity="0.7"/>
+      <stop offset="0.42" stop-color="#5C2FE6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#05030B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGlowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(315 298) rotate(-20) scale(520 210)">
+      <stop stop-color="#38BDF8" stop-opacity="0.42"/>
+      <stop offset="0.5" stop-color="#7C3AED" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#05030B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFFFFF" stop-opacity="0.34"/>
+      <stop offset="0.45" stop-color="#C2A4FF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="1130" y1="38" x2="1314" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F2FF" stop-opacity="0.78"/>
+      <stop offset="0.42" stop-color="#9B6DFF" stop-opacity="0.46"/>
+      <stop offset="1" stop-color="#171022" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="blurGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#000000" flood-opacity="0.42"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="20" flood-color="#C2A4FF" flood-opacity="0.25"/>
+    </filter>
+    <pattern id="grid" width="58" height="58" patternUnits="userSpaceOnUse">
+      <path d="M58 0H0V58" stroke="#C2A4FF" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1584" height="396" fill="#05030B"/>
+  <rect width="1584" height="396" fill="url(#bgGlowA)"/>
+  <rect width="1584" height="396" fill="url(#bgGlowB)"/>
+  <rect width="1584" height="396" fill="url(#grid)"/>
+
+  <circle cx="1215" cy="204" r="214" fill="#A855F7" opacity="0.18" filter="url(#blurGlow)"/>
+  <circle cx="330" cy="310" r="180" fill="#38BDF8" opacity="0.12" filter="url(#blurGlow)"/>
+  <path d="M1060 20C1218 105 1348 104 1518 48" stroke="#C2A4FF" stroke-opacity="0.16" stroke-width="2"/>
+  <path d="M1006 356C1159 273 1329 272 1501 349" stroke="#38BDF8" stroke-opacity="0.13" stroke-width="2"/>
+
+  <g opacity="0.95">
+    <rect x="90" y="70" width="860" height="256" rx="34" fill="url(#glass)" stroke="white" stroke-opacity="0.17"/>
+    <path d="M118 118H205" stroke="#C2A4FF" stroke-width="6" stroke-linecap="round"/>
+    <text x="118" y="170" fill="#FFFFFF" font-family="Geist, Inter, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-2.2">Shubhransh Gupta</text>
+    <text x="120" y="215" fill="#C2A4FF" font-family="Geist, Inter, Arial, sans-serif" font-size="27" font-weight="700">iOS Engineer @ Lenskart</text>
+    <text x="120" y="252" fill="#EAE5EC" fill-opacity="0.82" font-family="Geist, Inter, Arial, sans-serif" font-size="22" font-weight="500">Swift " SwiftUI " UIKit " CoreData " Architecture " High-scale mobile apps</text>
+    <text x="120" y="292" fill="#ADACAC" font-family="Geist, Inter, Arial, sans-serif" font-size="18" font-weight="500">Building polished mobile experiences with scalable engineering systems.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1076" y="48" width="244" height="312" rx="48" fill="url(#phone)" stroke="white" stroke-opacity="0.32" stroke-width="2"/>
+    <rect x="1106" y="91" width="184" height="232" rx="32" fill="#0B0613" fill-opacity="0.72" stroke="white" stroke-opacity="0.08"/>
+    <rect x="1161" y="68" width="74" height="14" rx="7" fill="#05030B"/>
+    <circle cx="1198" cy="197" r="70" fill="#C2A4FF" opacity="0.14"/>
+    <path d="M1142 157H1249" stroke="#F7F2FF" stroke-opacity="0.36" stroke-width="10" stroke-linecap="round"/>
+    <path d="M1142 188H1222" stroke="#F7F2FF" stroke-opacity="0.26" stroke-width="10" stroke-linecap="round"/>
+    <rect x="1142" y="220" width="94" height="34" rx="17" fill="#C2A4FF" fill-opacity="0.22" stroke="#C2A4FF" stroke-opacity="0.42"/>
+    <text x="1189" y="243" text-anchor="middle" fill="#F7F2FF" font-family="Geist, Inter, Arial, sans-serif" font-size="16" font-weight="800">SwiftUI</text>
+    <path d="M1142 281H1208" stroke="#F7F2FF" stroke-opacity="0.22" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <g font-family="Geist, Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#F7F2FF">
+    <rect x="1008" y="73" width="88" height="38" rx="19" fill="#0B080C" fill-opacity="0.78" stroke="white" stroke-opacity="0.14"/>
+    <text x="1052" y="98" text-anchor="middle">Swift</text>
+    <rect x="1308" y="112" width="94" height="38" rx="19" fill="#0B080C" fill-opacity="0.78" stroke="white" stroke-opacity="0.14"/>
+    <text x="1355" y="137" text-anchor="middle">UIKit</text>
+    <rect x="982" y="248" width="112" height="38" rx="19" fill="#0B080C" fill-opacity="0.78" stroke="white" stroke-opacity="0.14"/>
+    <text x="1038" y="273" text-anchor="middle">CoreData</text>
+    <rect x="1300" y="278" width="104" height="38" rx="19" fill="#0B080C" fill-opacity="0.78" stroke="white" stroke-opacity="0.14"/>
+    <text x="1352" y="303" text-anchor="middle">CI/CD</text>
+  </g>
+
+  <path d="M0 356C258 306 468 333 682 366C880 397 1093 380 1584 300V396H0V356Z" fill="white" fill-opacity="0.03"/>
+</svg>

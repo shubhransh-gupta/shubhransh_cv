@@ -1653,6 +1653,13 @@ h2.landing-info-h2 {
   height: 100%;
 }
 
+.work-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
 .work-section h2 {
   margin-top: 100px;
   margin-bottom: 0;
@@ -1664,6 +1671,36 @@ h2.landing-info-h2 {
 
 .work-section h2 span {
   color: var(--accentColor);
+}
+
+.work-arrows {
+  display: flex;
+  gap: 12px;
+  margin-top: 100px;
+}
+
+.work-arrow {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  color: white;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
+    rgba(11, 8, 12, 0.76);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.work-arrow:hover {
+  border-color: rgba(194, 164, 255, 0.52);
+  color: var(--accentColor);
+  transform: translateY(-3px);
 }
 
 .work-flex {
@@ -1914,8 +1951,22 @@ h2.landing-info-h2 {
 }
 
 .contact-section {
+  position: relative;
+  overflow: hidden;
   padding: 120px 0 60px;
   text-align: left;
+}
+
+.contact-section::before {
+  position: absolute;
+  top: 80px;
+  right: -120px;
+  width: 430px;
+  height: 430px;
+  content: "";
+  border-radius: 50%;
+  background: rgba(194, 164, 255, 0.18);
+  filter: blur(70px);
 }
 
 .contact-section h2 {
@@ -1923,22 +1974,133 @@ h2.landing-info-h2 {
   text-align: left;
 }
 
+.contact-container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 28px;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 36px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
+    radial-gradient(circle at 82% 18%, rgba(194, 164, 255, 0.24), transparent 34%);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+}
+
+.contact-hero::after {
+  position: absolute;
+  top: -60px;
+  right: 80px;
+  width: 180px;
+  height: 180px;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  box-shadow: 0 0 70px rgba(194, 164, 255, 0.2);
+}
+
+.contact-kicker {
+  margin: 0 0 16px;
+  color: var(--accentColor);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-hero h3 {
+  max-width: 930px;
+  margin: 0;
+  color: white;
+  font-size: clamp(38px, 5.6vw, 82px);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.contact-hero p:not(.contact-kicker) {
+  max-width: 670px;
+  margin: 22px 0 0;
+  color: rgba(234, 229, 236, 0.74);
+  font-size: 18px;
+}
+
+.contact-primary {
+  display: inline-flex;
+  margin-top: 28px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  color: #07040d;
+  background: linear-gradient(135deg, #fff, var(--accentColor));
+  font-weight: 800;
+  box-shadow: 0 18px 50px rgba(194, 164, 255, 0.22);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  background: #363636;
+  gap: 14px;
+  background: transparent;
 }
 
 .contact-grid a {
-  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-height: 145px;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 24px;
-  background: var(--backgroundColor);
-  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    rgba(11, 8, 12, 0.62);
+  font-weight: 800;
+  backdrop-filter: blur(14px);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.contact-grid a::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: radial-gradient(circle at 80% 20%, rgba(194, 164, 255, 0.22), transparent 38%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 .contact-grid a:hover {
+  border-color: rgba(194, 164, 255, 0.42);
   color: var(--accentColor);
+  transform: translateY(-6px);
+}
+
+.contact-grid a:hover::before {
+  opacity: 1;
+}
+
+.contact-grid span {
+  position: relative;
+  z-index: 1;
+  color: rgba(234, 229, 236, 0.55);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-grid strong {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: clamp(17px, 1.35vw, 22px);
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .contact-section p {
@@ -2245,5 +2407,56 @@ h2.landing-info-h2 {
   .device-frame {
     width: 210px;
     height: 400px;
+  }
+}
+
+/* Final desktop containment: the phone must scroll away with the hero. */
+@media only screen and (min-width: 1025px) {
+  .landing-section {
+    contain: layout paint;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .landing-section .character-model {
+    position: absolute !important;
+    inset: 0 auto auto 50% !important;
+    height: 100% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .landing-section .character-stage {
+    position: absolute !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -43%) !important;
+  }
+}
+
+/* My Work stays horizontal-only on desktop. */
+@media only screen and (min-width: 1025px) {
+  .work-section {
+    height: 100vh;
+    overflow: hidden !important;
+  }
+
+  .work-container {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .work-flex {
+    overflow-x: auto;
+    overflow-y: hidden !important;
+    overscroll-behavior: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    touch-action: pan-y;
+  }
+
+  .work-box {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
   }
 }

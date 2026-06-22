@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -188,7 +190,13 @@
 
     <section class="work-section" id="work">
       <div class="work-container section-container">
-        <h2 class="reveal">My <span>Work</span></h2>
+        <div class="work-heading reveal">
+          <h2>My <span>Work</span></h2>
+          <div class="work-arrows" aria-label="Project navigation">
+            <button type="button" class="work-arrow work-prev" aria-label="Previous project">←</button>
+            <button type="button" class="work-arrow work-next" aria-label="Next project">→</button>
+          </div>
+        </div>
         <div class="work-flex">
           <article class="work-box reveal">
             <div class="work-info">
@@ -258,11 +266,17 @@
     <section class="contact-section" id="contact">
       <div class="contact-container section-container">
         <h2 class="reveal">Contact</h2>
+        <div class="contact-hero reveal">
+          <p class="contact-kicker">Available for impactful iOS roles</p>
+          <h3>Let’s build mobile experiences that feel fast, polished, and dependable.</h3>
+          <p>Reach out for iOS engineering, SwiftUI, mobile architecture, SDK design, or high-scale consumer app opportunities.</p>
+          <a class="contact-primary" href="mailto:gupta.subhransh@gmail.com">Start a conversation</a>
+        </div>
         <div class="contact-grid">
-          <a href="mailto:gupta.subhransh@gmail.com">gupta.subhransh@gmail.com</a>
-          <a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noreferrer">ShubhranshProxy</a>
+          <a href="mailto:gupta.subhransh@gmail.com"><span>Email</span><strong>gupta.subhransh@gmail.com</strong></a>
+          <a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank" rel="noreferrer"><span>Network</span><strong>LinkedIn</strong></a>
+          <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer"><span>Code</span><strong>GitHub</strong></a>
+          <a href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noreferrer"><span>Open Source</span><strong>ShubhranshProxy</strong></a>
         </div>
         <p>&copy; 2026 Shubhransh Gupta . Crafted with precision in Bengaluru</p>
       </div>
@@ -281,6 +295,18 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+    const workScroller = document.querySelector('.work-flex');
+    const workPrev = document.querySelector('.work-prev');
+    const workNext = document.querySelector('.work-next');
+    const scrollWork = (direction) => {
+      if (!workScroller) return;
+      const card = workScroller.querySelector('.work-box');
+      const amount = card ? card.getBoundingClientRect().width : 420;
+      workScroller.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    };
+    workPrev?.addEventListener('click', () => scrollWork(-1));
+    workNext?.addEventListener('click', () => scrollWork(1));
   </script>
 </body>
 </html>
