@@ -1,266 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Shubhransh Gupta| CV | Portfolio </title>
-	<link rel="shortcut icon" href="bnmit.jpg" type="image/x-icon">  
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-	<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-	<link rel="stylesheet" href="styles.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$(".full_info_wrap .tabs ul li").click(function(){
-				$(".full_info_wrap .tabs ul li").removeClass("active");
-				$(this).addClass("active");
-
-				var datali = $(this).attr("data-li");
-
-				$(".full_info_item").hide();
-
-				if(datali == "experience"){
-					$(".experience").show();
-				}
-				else if(datali == "education"){
-					$(".education").show();
-				}
-				else if(datali == "contact"){
-					$(".contact").show();
-				}
-				else{
-					console.log("Loding...");
-				}
-			})
-		})
-	</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shubhransh Gupta is an iOS Engineer building scalable Swift, SwiftUI, and UIKit applications for high-impact products.">
+  <meta name="theme-color" content="#080511">
+  <meta property="og:title" content="Shubhransh Gupta - iOS Engineer">
+  <meta property="og:description" content="Portfolio and CV of Shubhransh Gupta, SDE 2 at Navi and creator of ShubhranshProxy.">
+  <meta property="og:type" content="website">
+  <title>Shubhransh Gupta - iOS Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	
-<div class="wrapper">
-   <div class="resume">
-      
-       <div class="profile_info">
-            <div class="profile_img">
-              <img src="profile_pic.png" alt="profile_img">
-            </div>
-            <div class="profile_data">
-                <p class="name">Shubhransh Gupta</p>
-                <span><i class="fas fa-map-marker-alt"></i> Bengaluru</span>
-            </div>
-            <div class="view_more_btn">
-              <a href="https://github.com/shubhransh-gupta" target="_blank"><i class="fa fa-code-fork" aria-hidden="true"></i> &nbsp My Work
-             </a>
-            </div>
-        </div>  
-      
-       <div class="skills">
-	       <div class="title">
-	         Top Skills
-	       </div>
-	       <ul>
-	         <li>
-	           <div class="skill_item html">
-	             <div class="icon"></div>
-	             <div class="text">HTML</div>
-	           </div>
-	         </li>
-	         <li>
-	           <div class="skill_item css">
-	             <div class="icon"></div>
-	             <div class="text">CSS</div>
-	           </div>
-	         </li>
-	         <li>
-	           <div class="skill_item js">
-	             <div class="icon"></div>
-	             <div class="text">Javascript</div>
-	           </div>
-	         </li>
-	         <li>
-	           <div class="skill_item php">
-	            <!-- <span class="iconify" data-icon="logos:php" data-inline="false"></span>
-	             -->
-	             <i class="fab fa-cuttlefish"><b>++</b></i>
-	             <div class="text">C++ /  Data Structures </div>
-	           </div>
-	         </li>
-	         <li>
-	           <div class="skill_item php">
-	             <span class="iconify" data-icon="logos:php" data-inline="false"></span>
-	             <div class="text">PHP Frameworks</div>
-	           </div>
-	         </li>
-	         <li>
-	           <div class="skill_item node">
-	             <!--<span class="iconify" data-icon="mdi-nodejs" data-inline="false"></span> -->
-	             <i class="fab fa-node-js fa-2x" style="color:green"></i>
-	             <div class="text">NodeJS</div>
-	           </div>
-	         </li>
-	       </ul>
-	    </div>
-     
-        <div class="full_info_wrap">
-            <div class="tabs">
-                <ul>
-                    <li data-li="experience" class="active">Experience</li>
-                    <li data-li="education">Education</li>
-                    <li data-li="contact">Contact</li>  
-                </ul>  
-            </div>  
-            
-            <div class="full_info">
-                <div class="full_info_item experience">
-                    <div class="title">Work Experience</div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-one" aria-hidden="true"></div>
+  <div class="orb orb-two" aria-hidden="true"></div>
 
-                    <div class="info_wrap">
-                    	<ul>
-                    		<li>
-                    			<div class="sub_title">
-                    				April 2020 - June 2020
-                    			</div>
-								
-								<div class="info_item">
-									<div class="info_title">
-										<b>FlatsAndFlatmates</b>
-									</div>
-									<div class="data">
-										Managed the Frontend with the latest techs and tools, whole backend service, and hosted on AWS. I got myself aware of version control tools (source tree) and version control (bitbucket). Learned 6-7 services of AWS. Overall it was an amazing journey.
-									</div>
-								</div>
-                    		</li>
-                    		<li>
-                    			<div class="sub_title">
-                    				March 2020- April 2020
-                    			</div>
-								
-								<div class="info_item">
-									<div class="info_title">
-										<b>Go Gaga</b>
-									</div>
-									<div class="data">
-										Worked here on LAMP stack as PHP developer.I also got myself aware of version control tools (source tree) and version control (bitbucket).
-									</div>
-								</div>
-                    		</li>
-                    	<!--	<li>
-                    			<div class="sub_title">
-                    				2017 - Present
-                    			</div>
-								
-								<div class="info_item">
-									<div class="info_title">
-										Google
-									</div>
-									<div class="data">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae aliquam nesciunt tempora fugit, doloremque pariatur.
-									</div>
-								</div>
-                    		</li> -->
-                    	</ul>
-                    </div>
-                </div>  
-                <div class="full_info_item education" style="display: none;">
-                  <div class="title">EDUCATION</div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Shubhransh Gupta home">SG</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:gupta.subhransh@gmail.com">Let's Talk</a>
+  </header>
 
-                  <div class="info_wrap">
-                    	<ul>
-                    		<li>
-                    			<div class="sub_title">
-                    				2017 - Present
-                    			</div>
-								
-								<div class="info_item">
-									<div class="info_title">
-										B.E Computer Science | BNM Institute of Technology, Bangalore 
-									</div>
-									<div class="data">
-										PASSING YEAR: 2021 
-										CGPA: 8.91 
-									</div>
-								</div>
-                    		</li><li>
-                    			<div class="sub_title">
-                    				2015 - 2016 	
-                    			</div>
-								
-								<div class="info_item">
-									<div class="info_title">
-										<b> 12th</b> | Ajmani International School, Lakhimpur, UP (CBSE) 
-									</div>
-									<div class="data">
-										PASSING YEAR:2016 
-										PERCENTAGE: 93.4 %
-										CBSE Board 
-									</div>
-								</div>
-                    		</li>
-                    		<li>
-                    			<div class="sub_title">
-                    				2013 - 2014
-                    			</div>
-								
-								<div class="info_item">
-									<div class="info_title">
-										<b>10th </b>| Ajmani International School, Lakhimpur, UP (CBSE)
-									</div>
-									<div class="data">
-										PASSING YEAR:2014 
-										CGPA: 9.6
-										CBSE Board 
-									</div>
-								</div>
-                    		</li>
-                    		
-                    	</ul>
-                    </div>
-                </div>  
-                <div class="full_info_item contact" style="display: none;">
-                  <div class="title">CONTACT</div>
-
-                  <div class="info_wrap">
-                  	<ul>
-                  		<li>
-                  			<span class="info_q"><i class="fas fa-envelope-open" style="color:red"></i>Gmail</span>
-                  			<span class="info_a">gupta.subhransh@gmail.com</span>
-                  		</li>
-                  		<li>
-                  			<span class="info_q"><i class="fas fa-phone-alt" style="color:black"></i>Phone</span>
-                  			<span class="info_a">+91 8299300084</span>
-                  		</li>
-                  		<li>
-                  			<span class="info_q"><span class="info_a"> <span class="iconify" data-icon="emojione:letter-s" data-inline="false"></span>Website</span>
-                  			<a href="https://guptasubhransh.wixsite.com/portfolio/" target="_blank"> </span>/Shubhransh_Gupta</a>
-                  		</li>
-                  		
-                  		<li>
-                  			<span class="info_q"><span class="iconify" data-icon="brandico:linkedin-rect" data-inline="false" style="color:blue"></span>Linkedin</span>
-                  			<a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank"> /Shubhransh_Gupta</a>
-                  			
-                  		</li>
-                  		<li>
-                  			<span class="info_q"><span class="iconify" data-icon="logos:facebook" data-inline="false"></span>Facebook</span>
-                  			<a href="https://www.facebook.com/subhransh.gupta" target="_blank">/Shubhransh_Gupta</a>
-                  			
-                  		</li>
-                  		<li>
-                  			<span class="info_q"><i class="fab fa-hackerrank" style="color:green"></i>HackerRank</span>
-                  			<a href="https://www.hackerrank.com/gupta_subhransh" target="_blank">/Shubhransh_Gupta</a>
-                  			
-                  		</li>
-                  		
-                  		
-                  	</ul>
-                  </div>
-                </div>  
-            </div> 
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">iOS Engineer . Swift . SwiftUI</p>
+        <h1>
+          SHUBHRANSH
+          <span>GUPTA</span>
+        </h1>
+        <p class="hero-summary">
+          Building mobile experiences that move and inspire. I craft high-impact apps with scalable architecture, clean Swift, and product-minded engineering.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View My Work</a>
+          <a class="button secondary" href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer">GitHub & Writing</a>
         </div>
-     
-   </div>
-</div>
+      </div>
 
+      <aside class="hero-card reveal" aria-label="Profile summary">
+        <div class="avatar-wrap">
+          <div class="avatar">SG</div>
+          <span class="status-dot">Online now</span>
+        </div>
+        <div>
+          <p class="role">SDE 2 @ Navi</p>
+          <h2>Building the future of mobile</h2>
+          <p>Bengaluru, India</p>
+        </div>
+        <div class="stats-grid">
+          <div><strong>5+</strong><span>Years Experience</span></div>
+          <div><strong>3</strong><span>Companies</span></div>
+          <div><strong>99%</strong><span>Crash-Free Focus</span></div>
+          <div><strong>Open</strong><span>Source Builder</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section intro reveal" aria-labelledby="intro-title">
+      <p class="eyebrow">About</p>
+      <h2 id="intro-title">I blend Swift mastery with scalable architecture to ship products millions rely on.</h2>
+      <p>
+        From fintech to travel, I have shipped consumer app features across Navi, MakeMyTrip, and Nuclei, with a focus on modularity, performance, clean product experiences, and dependable engineering practices.
+      </p>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Career Journey</p>
+        <h2 id="experience-title">Engineering at scale and speed</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-card reveal">
+          <span class="date">May 2025 - Present . Bengaluru</span>
+          <h3>Navi</h3>
+          <p class="subtitle">SDE 2</p>
+          <ul>
+            <li>Improved application scalability by migrating lifecycle management to SceneDelegate architecture.</li>
+            <li>Enabled deep-linking and faster content discovery by integrating CoreSpotlight-based search indexing.</li>
+            <li>Enhanced modularity and testability by implementing dependency injection using Swinject.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card reveal">
+          <span class="date">Jan 2024 - May 2025 . Bengaluru</span>
+          <h3>MakeMyTrip</h3>
+          <p class="subtitle">Senior Software Engineer</p>
+          <ul>
+            <li>Improved user experience by developing Zero Cancellation, Free Date Change Insurance, and advanced Sort & Filter using SwiftUI.</li>
+            <li>Accelerated feature integration by implementing Unified Flights SDK using SPM and CocoaPods across multiple architectural patterns.</li>
+            <li>Increased team productivity by leading an iOS pod and conducting knowledge-sharing sessions on best practices.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-card reveal">
+          <span class="date">May 2021 - Dec 2023 . Bengaluru</span>
+          <h3>Nuclei</h3>
+          <p class="subtitle">iOS Developer . SDE-1</p>
+          <ul>
+            <li>Delivered core banking features including Fund Transfer, Scan & Pay, and onboarding to improve mobile banking usability.</li>
+            <li>Achieved regulatory compliance by integrating UPI using NPCI CL Library and completing certification.</li>
+            <li>Improved app performance and data consistency by optimizing CoreData migrations and concurrency handling.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Expertise</p>
+        <h2 id="skills-title">Technologies I work with</h2>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-card reveal">
+          <span>01</span>
+          <h3>Languages & Frameworks</h3>
+          <p>Swift, SwiftUI, UIKit, CoreData, Combine, Concurrency, Observable, APNS</p>
+        </article>
+        <article class="skill-card reveal">
+          <span>02</span>
+          <h3>Tools & Platforms</h3>
+          <p>Xcode, Git & GitHub, Bitbucket, Jira, App Store Connect, TestFlight, Clevertap, Gerrit</p>
+        </article>
+        <article class="skill-card reveal">
+          <span>03</span>
+          <h3>Architecture & Concepts</h3>
+          <p>MVVM, MVP, VIPER, MVC, Dependency Injection, CI/CD, SPM, CocoaPods</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section proxy-section reveal" aria-labelledby="proxy-title">
+      <div>
+        <p class="eyebrow">Open source . macOS</p>
+        <h2 id="proxy-title">ShubhranshProxy</h2>
+        <p>
+          A next-generation HTTP(S) debugging proxy built from scratch. Capture Mac, iPhone, and Android traffic with SSL decryption, Map Local, breakpoints, throttling, and HAR export.
+        </p>
+      </div>
+      <a class="button primary" href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noreferrer">Explore the App</a>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Featured Work</p>
+        <h2 id="projects-title">Projects that made an impact</h2>
+      </div>
+      <div class="project-grid">
+        <article class="project-card large reveal">
+          <span class="date">2026 . Flagship Open Source</span>
+          <h3>ShubhranshProxy - HTTP(S) Debugging Proxy</h3>
+          <p>Native macOS proxy engine with intelligent domain sidebar, selective SSL decrypt, mobile capture on the same Wi-Fi, Map Local, breakpoints, throttling, and HAR export.</p>
+          <a href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noreferrer">Explore website</a>
+        </article>
+        <article class="project-card reveal">
+          <span class="date">2025</span>
+          <h3>Cobalion - AI Compliance Platform</h3>
+          <p>Built an AI-driven platform to scrape regulatory circulars from NPCI and SEBI and process them using LLM-based contextual analysis.</p>
+          <strong>Best Innovative Project - Navi Hackathon</strong>
+        </article>
+        <article class="project-card reveal">
+          <span class="date">2022</span>
+          <h3>POGO - Gift Voucher Platform</h3>
+          <p>Developed a voucher platform using Swift, Python, and MySQL, enabling reward-based recharge workflows during the Nuclei Hackathon.</p>
+        </article>
+        <article class="project-card reveal">
+          <span class="date">Open Source</span>
+          <h3>Swift Contact Application</h3>
+          <p>A native iOS contact management app demonstrating UIKit patterns, data persistence, and clean architecture principles.</p>
+          <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section education reveal" aria-labelledby="education-title">
+      <p class="eyebrow">Education</p>
+      <h2 id="education-title">Academic foundation</h2>
+      <div class="education-card">
+        <span class="date">Aug 2017 - Jun 2021 . Bengaluru, India</span>
+        <h3>BNM Institute of Technology</h3>
+        <p>B.E. Computer Science . GPA 8.45/10</p>
+        <p>Innovative Project Labs Summer Championship Award . Ranked #1 at college level on GeeksForGeeks</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="recommendations-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">What Teammates Say</p>
+        <h2 id="recommendations-title">Recommendations</h2>
+      </div>
+      <div class="recommendation-grid">
+        <blockquote class="recommendation-card reveal">
+          <p>"I've had the pleasure of working alongside Shubhransh at MakeMyTrip, and I can confidently say that he's one of the most dedicated and resourceful professionals I've worked with."</p>
+          <cite>Shani Vishwakarma . MakeMyTrip iOS</cite>
+        </blockquote>
+        <blockquote class="recommendation-card reveal">
+          <p>"I had the pleasure of working with Shubhransh on the flight unification task, and his contributions were truly outstanding. He tackled complex challenges with ease."</p>
+          <cite>Harsh Chauhan . MakeMyTrip Flight Unification</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section contact-section reveal" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">Get in Touch</p>
+      <h2 id="contact-title">Let's build something extraordinary</h2>
+      <p>Open to conversations about iOS engineering, architecture, and impactful product work.</p>
+      <div class="contact-links">
+        <a href="mailto:gupta.subhransh@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noreferrer">ShubhranshProxy</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Shubhransh Gupta . Crafted with precision in Bengaluru</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
 </body>
 </html>
