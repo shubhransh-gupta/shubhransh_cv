@@ -1,0 +1,11 @@
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="markGlow" x1="6" y1="4" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C2A4FF"/>
+      <stop offset="1" stop-color="#7F40FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="36" height="36" rx="10" fill="#0B080C"/>
+  <circle cx="18" cy="18" r="14" fill="url(#markGlow)" opacity="0.25"/>
+  <text x="18" y="23" text-anchor="middle" fill="#F7F2FF" font-family="Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="-1">SG</text>
+</svg>
