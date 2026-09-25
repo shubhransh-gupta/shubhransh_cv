@@ -1002,11 +1002,12 @@ button {
 
 .whale-title-overlay {
   position: absolute;
-  top: 18px;
+  top: 24px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   pointer-events: none;
+  z-index: 3;
 }
 
 .whale-kicker {
@@ -1562,8 +1563,9 @@ button {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  min-height: 380px;
+  min-height: 480px;
 }
+
 
 .exp-pane-head {
   display: flex;
