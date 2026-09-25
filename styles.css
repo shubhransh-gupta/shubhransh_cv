@@ -861,12 +861,23 @@ button {
   overflow-x: hidden;
 }
 
+/* Hero view is full-bleed — no padding */
+.hud-view.view-hero {
+  padding: 0;
+  overflow: hidden;
+}
+
+
+
 .hud-view.active {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: scale(1) translateY(0);
-  position: relative;
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .panel-inner {
@@ -939,36 +950,31 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   VIEW 01: HERO / HOME
+   VIEW 01: HERO / HOME — Full-bleed whale with left overlay dossier
    -------------------------------------------------------------------------- */
 .hero-stage-content {
-  position: relative;
-  width: 100%;
-  min-height: calc(100vh - var(--topbar-height) - var(--dock-height) - 48px);
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
 .whale-viewport {
   position: absolute;
-  top: 50%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  width: min(720px, 85vw);
-  aspect-ratio: 16 / 9;
-  border: 1px solid var(--border-hud);
-  box-shadow: 0 0 35px rgba(255, 30, 66, 0.25);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background: #000;
-  transition: transform 0.1s ease-out;
 }
 
 .whale-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(1.1) brightness(1.05);
+  object-position: center;
+  filter: contrast(1.1) brightness(1.0);
   transition: transform 0.6s ease;
 }
 
@@ -981,8 +987,16 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 40%;
-  background: linear-gradient(180deg, transparent, rgba(255, 30, 66, 0.35));
+  height: 50%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+  pointer-events: none;
+}
+
+/* Left side fade overlay so dossier card is readable */
+.whale-left-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(4, 1, 6, 0.92) 0%, rgba(4, 1, 6, 0.7) 40%, transparent 65%);
   pointer-events: none;
 }
 
@@ -1014,29 +1028,34 @@ button {
 
 .whale-reticle {
   position: absolute;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   pointer-events: none;
 }
-.whale-reticle.r-tl { top: 6px; left: 6px; border-top: 2px solid var(--crimson); border-left: 2px solid var(--crimson); }
-.whale-reticle.r-tr { top: 6px; right: 6px; border-top: 2px solid var(--crimson); border-right: 2px solid var(--crimson); }
-.whale-reticle.r-bl { bottom: 6px; left: 6px; border-bottom: 2px solid var(--crimson); border-left: 2px solid var(--crimson); }
-.whale-reticle.r-br { bottom: 6px; right: 6px; border-bottom: 2px solid var(--crimson); border-right: 2px solid var(--crimson); }
+.whale-reticle.r-tl { top: 8px; left: 8px; border-top: 2px solid var(--crimson); border-left: 2px solid var(--crimson); }
+.whale-reticle.r-tr { top: 8px; right: 8px; border-top: 2px solid var(--crimson); border-right: 2px solid var(--crimson); }
+.whale-reticle.r-bl { bottom: 8px; left: 8px; border-bottom: 2px solid var(--crimson); border-left: 2px solid var(--crimson); }
+.whale-reticle.r-br { bottom: 8px; right: 8px; border-bottom: 2px solid var(--crimson); border-right: 2px solid var(--crimson); }
+
+
 
 /* Left Floating Dossier Card */
 .hero-dossier-card {
-  position: relative;
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 5;
-  width: min(440px, 92vw);
-  background: rgba(14, 5, 12, 0.88);
+  width: min(420px, 50%);
+  background: rgba(10, 3, 9, 0.82);
   border: 1px solid var(--border-hud-strong);
-  box-shadow: 0 0 30px rgba(255, 30, 66, 0.35);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 24px;
-  margin-right: auto;
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  box-shadow: 0 0 40px rgba(255, 30, 66, 0.3), inset 0 0 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 24px 28px;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
 }
+
 
 .dossier-header {
   display: flex;
@@ -2359,20 +2378,21 @@ button {
     display: none;
   }
   .hero-stage-content {
-    flex-direction: column;
-    padding-top: 20px;
+    overflow: auto;
   }
   .whale-viewport {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    margin-bottom: 20px;
+    height: 100%;
   }
   .hero-dossier-card {
-    width: 100%;
-    margin: 0;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: calc(100% - 32px);
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 

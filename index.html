@@ -232,16 +232,22 @@
     <main class="hud-stage" id="hudStage">
 
       <!-- VIEW 01: HERO / HOME -->
-      <section class="hud-view active" id="view-home" data-view="0">
+      <section class="hud-view view-hero active" id="view-home" data-view="0">
         <div class="hero-stage-content">
-          <!-- Central Cybernetic Bioluminescent Whale -->
+          <!-- Full-bleed Whale Background -->
           <div class="whale-viewport" id="whaleViewport">
+            <div class="whale-left-fade"></div>
             <div class="whale-glow-pool"></div>
             <img src="assets/cyber_whale_hero.jpg" alt="The Whale - Bioluminescent Cyber Creature" class="whale-img" id="whaleImg">
             <div class="whale-reticle r-tl"></div>
             <div class="whale-reticle r-tr"></div>
             <div class="whale-reticle r-bl"></div>
             <div class="whale-reticle r-br"></div>
+            <!-- Whale name label top-center -->
+            <div class="whale-title-overlay">
+              <span class="whale-kicker">THE WHALE</span>
+              <span class="whale-subkicker">4.12.23</span>
+            </div>
           </div>
 
           <!-- Hero HUD Dossier Card (Left Overlay matching Figma) -->
