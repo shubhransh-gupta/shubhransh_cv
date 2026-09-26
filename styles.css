@@ -1329,6 +1329,8 @@ body[data-theme="light"] .icon-moon { display: none; }
   transition: all 0.3s var(--ease-smooth);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
 }
 
 .method-card:hover {
@@ -1338,7 +1340,10 @@ body[data-theme="light"] .icon-moon { display: none; }
 }
 
 .method-top {
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
 
 .method-num {
@@ -1643,89 +1648,35 @@ body[data-theme="light"] .icon-moon { display: none; }
     grid-row: auto;
     grid-column: auto;
   }
+}
+
 /* ==========================================================================
-   SECTION 05B: OPEN SOURCE CONTRIBUTIONS (APPLE, GOOGLE, MICROSOFT)
+   SECTION 05B: OPEN SOURCE CONTRIBUTIONS & METHOD CARDS EXTENSIONS
    ========================================================================== */
-.oss-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.oss-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: 24px;
-  padding: 28px 24px;
-  transition: all 0.3s var(--ease-smooth);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-}
-
-.oss-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 92, 26, 0.1);
-  transform: translateY(-3px);
-}
-
-.oss-card-header {
+.method-card-footer {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border-subtle);
 }
 
-.oss-brand-title {
-  display: flex;
+.card-link-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--text-pure);
-}
-
-.oss-pr-counter {
+  gap: 7px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 11.5px;
+  font-weight: 600;
   color: var(--accent);
-  background: rgba(255, 92, 26, 0.1);
-  padding: 3px 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 92, 26, 0.2);
-}
-
-.oss-pr-items {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.oss-pr-link {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.oss-pr-link:hover {
-  background: rgba(255, 92, 26, 0.06);
-  border-color: rgba(255, 92, 26, 0.2);
+.card-link-btn:hover {
+  color: var(--accent-light);
   transform: translateX(3px);
-}
-
-.oss-pr-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
 }
 
 .badge-status-merged {
@@ -1735,8 +1686,10 @@ body[data-theme="light"] .icon-moon { display: none; }
   color: #22c55e;
   background: rgba(34, 197, 94, 0.12);
   border: 1px solid rgba(34, 197, 94, 0.28);
-  padding: 1.5px 6px;
+  padding: 2.5px 7px;
   border-radius: 4px;
+  letter-spacing: 0.04em;
+  display: inline-block;
 }
 
 .badge-status-open {
@@ -1746,37 +1699,10 @@ body[data-theme="light"] .icon-moon { display: none; }
   color: var(--accent-light);
   background: rgba(255, 92, 26, 0.12);
   border: 1px solid rgba(255, 92, 26, 0.28);
-  padding: 1.5px 6px;
+  padding: 2.5px 7px;
   border-radius: 4px;
-}
-
-.oss-pr-repo {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-pure);
-  font-weight: 600;
-}
-
-.oss-pr-desc {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.oss-pr-desc code {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--accent-light);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1px 4px;
-  border-radius: 3px;
-}
-
-@media (max-width: 992px) {
-  .oss-grid {
-    grid-template-columns: 1fr;
-  }
+  letter-spacing: 0.04em;
+  display: inline-block;
 }
 
 /* ==========================================================================

@@ -780,135 +780,146 @@
           </div>
         </div>
 
-        <div class="oss-grid">
-          <!-- Card 1: Apple -->
-          <div class="oss-card" data-method-card="true">
-            <div class="oss-card-header">
-              <div class="oss-brand-title">
-                <svg viewBox="0 0 170 170" width="20" height="20" fill="currentColor"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.79-11.71-14.24-6.84-10.74-12.01-22.75-15.5-36.03-3.48-13.28-5.23-25.59-5.23-36.93 0-14.67 3.53-26.79 10.6-36.37 7.07-9.58 16.03-14.46 26.89-14.65 4.35 0 9.4 1.14 15.15 3.42 5.76 2.28 9.53 3.45 11.33 3.51 1.41 0 5.34-1.27 11.8-3.81 6.46-2.54 11.96-3.68 16.51-3.42 12.39.63 22.47 5.21 30.25 13.73-10.86 6.59-16.19 15.73-15.98 27.42.22 9.13 3.75 16.85 10.6 23.16 6.84 6.32 15.05 9.87 24.61 10.67-2.39 7.4-5.21 14.77-8.46 22.12zM119.22 33.15c0-7.39 2.66-14.41 7.99-21.06 5.32-6.65 11.83-10.79 19.52-12.43.33 1.3.49 2.5.49 3.59 0 7.39-2.78 14.56-8.35 21.51-5.56 6.96-12.11 11.08-19.65 12.38z"/></svg>
-                <span>Apple &amp; Swift</span>
-              </div>
-              <span class="oss-pr-counter">3 Merged · 4 Active</span>
+        <div class="method-grid">
+
+          <!-- Card 1: Apple swift-argument-parser -->
+          <div class="method-card" data-method-card="true">
+            <div class="method-top">
+              <span class="method-num">01 · APPLE &amp; SWIFT</span>
+              <span class="badge-status-merged">MERGED · #961</span>
             </div>
-            <ul class="oss-pr-items">
-              <li>
-                <a href="https://github.com/apple/swift-argument-parser/pull/961" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-merged">MERGED</span>
-                    <span class="oss-pr-repo">swift-argument-parser #961</span>
-                  </div>
-                  <p class="oss-pr-desc">Fix <code>--opt=</code> silently consuming next positional token</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/apple/swift-protobuf/pull/2159" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-merged">MERGED</span>
-                    <span class="oss-pr-repo">swift-protobuf #2159</span>
-                  </div>
-                  <p class="oss-pr-desc">Add <code>useDeterministicOrdering</code> to TextFormatEncodingOptions</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/ml-explore/mlx-swift/pull/467" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-merged">MERGED</span>
-                    <span class="oss-pr-repo">mlx-swift (Apple Silicon) #467</span>
-                  </div>
-                  <p class="oss-pr-desc">Fix convolve padRight for even kernels in same mode</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/apple/swift-crypto/pull/475" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-open">ACTIVE</span>
-                    <span class="oss-pr-repo">swift-crypto #475 &amp; #468</span>
-                  </div>
-                  <p class="oss-pr-desc">Add HKDF Nonce derivation helpers and X-Wing validation</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/apple/swift-algorithms/pull/290" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-open">ACTIVE</span>
-                    <span class="oss-pr-repo">swift-algorithms #290 &amp; #285</span>
-                  </div>
-                  <p class="oss-pr-desc">Add uniqued conflict-resolving overloads &amp; O(n) assertions</p>
-                </a>
-              </li>
-            </ul>
+            <h3 class="method-title">swift-argument-parser</h3>
+            <p class="method-desc">
+              Resolved a core flag-parsing edge case in Apple's official Swift CLI framework where <code>--opt=</code> silently consumed subsequent positional tokens.
+            </p>
+            <div class="method-tags">
+              <span>Apple</span>
+              <span>Swift 6.0</span>
+              <span>CLI Parsing</span>
+            </div>
+            <div class="method-card-footer">
+              <a href="https://github.com/apple/swift-argument-parser/pull/961" target="_blank" rel="noopener" class="card-link-btn">
+                <span>View PR on GitHub</span>
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
 
-          <!-- Card 2: Google -->
-          <div class="oss-card" data-method-card="true">
-            <div class="oss-card-header">
-              <div class="oss-brand-title">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-                <span>Google</span>
-              </div>
-              <span class="oss-pr-counter">1 Merged · 1 Active</span>
+          <!-- Card 2: Apple swift-protobuf -->
+          <div class="method-card" data-method-card="true">
+            <div class="method-top">
+              <span class="method-num">02 · APPLE &amp; SWIFT</span>
+              <span class="badge-status-merged">MERGED · #2159</span>
             </div>
-            <ul class="oss-pr-items">
-              <li>
-                <a href="https://github.com/google/osv-scanner/pull/3049" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-merged">MERGED</span>
-                    <span class="oss-pr-repo">google/osv-scanner #3049</span>
-                  </div>
-                  <p class="oss-pr-desc">Fix HTML vulnerability report checklist filter dismissal</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/google/zx/pull/1511" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-open">ACTIVE</span>
-                    <span class="oss-pr-repo">google/zx #1511</span>
-                  </div>
-                  <p class="oss-pr-desc">Fix core stdout stream parsing in json() execution</p>
-                </a>
-              </li>
-            </ul>
+            <h3 class="method-title">swift-protobuf</h3>
+            <p class="method-desc">
+              Added <code>useDeterministicOrdering</code> to TextFormat encoding options, guaranteeing reproducible serialization across golden test verification suites.
+            </p>
+            <div class="method-tags">
+              <span>Apple</span>
+              <span>Protobuf</span>
+              <span>Serialization</span>
+            </div>
+            <div class="method-card-footer">
+              <a href="https://github.com/apple/swift-protobuf/pull/2159" target="_blank" rel="noopener" class="card-link-btn">
+                <span>View PR on GitHub</span>
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
 
-          <!-- Card 3: Microsoft & Fastlane -->
-          <div class="oss-card" data-method-card="true">
-            <div class="oss-card-header">
-              <div class="oss-brand-title">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z"/></svg>
-                <span>Microsoft &amp; Tooling</span>
-              </div>
-              <span class="oss-pr-counter">1 Merged · 2 Active</span>
+          <!-- Card 3: Apple ML Research mlx-swift -->
+          <div class="method-card" data-method-card="true">
+            <div class="method-top">
+              <span class="method-num">03 · APPLE SILICON ML</span>
+              <span class="badge-status-merged">MERGED · #467</span>
             </div>
-            <ul class="oss-pr-items">
-              <li>
-                <a href="https://github.com/fastlane/fastlane/pull/30169" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-merged">MERGED</span>
-                    <span class="oss-pr-repo">fastlane/fastlane #30169</span>
-                  </div>
-                  <p class="oss-pr-desc">Fix duplicate prefix in application-identifier entitlement during resign</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/microsoft/aspire/pull/19931" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-open">ACTIVE</span>
-                    <span class="oss-pr-repo">microsoft/aspire #19931</span>
-                  </div>
-                  <p class="oss-pr-desc">Hide UTC timestamps in Cloud-Native telemetry dashboard</p>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/swiftlang/swift-package-manager/pull/10498" target="_blank" rel="noopener" class="oss-pr-link">
-                  <div class="oss-pr-meta">
-                    <span class="badge-status-open">ACTIVE</span>
-                    <span class="oss-pr-repo">swift-package-manager #10498</span>
-                  </div>
-                  <p class="oss-pr-desc">Clarify artifactbundle binary target resolution errors</p>
-                </a>
-              </li>
-            </ul>
+            <h3 class="method-title">mlx-swift (Apple ML)</h3>
+            <p class="method-desc">
+              Corrected convolution padding bounds calculation in <code>convolve</code> for even kernels in same mode across Apple Silicon unified memory GPUs.
+            </p>
+            <div class="method-tags">
+              <span>Apple Silicon</span>
+              <span>MLX</span>
+              <span>Metal GPU</span>
+            </div>
+            <div class="method-card-footer">
+              <a href="https://github.com/ml-explore/mlx-swift/pull/467" target="_blank" rel="noopener" class="card-link-btn">
+                <span>View PR on GitHub</span>
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
+
+          <!-- Card 4: Google osv-scanner -->
+          <div class="method-card" data-method-card="true">
+            <div class="method-top">
+              <span class="method-num">04 · GOOGLE SECURITY</span>
+              <span class="badge-status-merged">MERGED · #3049</span>
+            </div>
+            <h3 class="method-title">google/osv-scanner</h3>
+            <p class="method-desc">
+              Fixed vulnerability report checklist filter state preservation in HTML output, preventing inadvertent menu dismissals when toggling vulnerability criteria.
+            </p>
+            <div class="method-tags">
+              <span>Google</span>
+              <span>Security</span>
+              <span>Vulnerability</span>
+            </div>
+            <div class="method-card-footer">
+              <a href="https://github.com/google/osv-scanner/pull/3049" target="_blank" rel="noopener" class="card-link-btn">
+                <span>View PR on GitHub</span>
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5: Fastlane sigh -->
+          <div class="method-card" data-method-card="true">
+            <div class="method-top">
+              <span class="method-num">05 · FASTLANE &amp; CI/CD</span>
+              <span class="badge-status-merged">MERGED · #30169</span>
+            </div>
+            <h3 class="method-title">fastlane (sigh)</h3>
+            <p class="method-desc">
+              Fixed duplicate prefix injection in <code>application-identifier</code> entitlements during resign operations, preventing code signing rejections on app submission.
+            </p>
+            <div class="method-tags">
+              <span>Fastlane</span>
+              <span>Code Signing</span>
+              <span>App Store CI/CD</span>
+            </div>
+            <div class="method-card-footer">
+              <a href="https://github.com/fastlane/fastlane/pull/30169" target="_blank" rel="noopener" class="card-link-btn">
+                <span>View PR on GitHub</span>
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 6: Apple Core & Microsoft -->
+          <div class="method-card" data-method-card="true">
+            <div class="method-top">
+              <span class="method-num">06 · APPLE &amp; MICROSOFT</span>
+              <span class="badge-status-open">ACTIVE CONTRIBUTIONS</span>
+            </div>
+            <h3 class="method-title">swift-crypto &amp; aspire</h3>
+            <p class="method-desc">
+              Authored HKDF nonce derivation in CryptoExtras (#475), O(n) unique assertions in swift-algorithms (#290), and telemetry timestamp controls in .NET Aspire (#19931).
+            </p>
+            <div class="method-tags">
+              <span>swift-crypto</span>
+              <span>swift-algorithms</span>
+              <span>.NET Aspire</span>
+            </div>
+            <div class="method-card-footer">
+              <a href="https://github.com/apple/swift-crypto/pull/475" target="_blank" rel="noopener" class="card-link-btn">
+                <span>View PR on GitHub</span>
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
