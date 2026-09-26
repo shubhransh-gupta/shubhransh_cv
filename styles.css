@@ -35,24 +35,6 @@
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Light Theme Variables */
-body[data-theme="light"] {
-  --bg-primary: #f8f8fa;
-  --bg-secondary: #f0f0f4;
-  --bg-alt: #e8e8ed;
-  --bg-card: rgba(255, 255, 255, 0.85);
-  --bg-card-hover: rgba(255, 255, 255, 1);
-  --bg-pill: rgba(245, 245, 248, 0.85);
-  
-  --text-pure: #09090b;
-  --text-high: #18181b;
-  --text-mid: #52525b;
-  --text-dim: #a1a1aa;
-  
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --border-card: rgba(0, 0, 0, 0.1);
-  --border-hover: rgba(255, 92, 26, 0.6);
-}
 
 /* RESET & BASE */
 *, *::before, *::after {
@@ -150,14 +132,6 @@ button {
   display: block;
 }
 
-body[data-theme='light'] #tube-cursor-portal {
-  mix-blend-mode: multiply;
-  opacity: 0.7;
-}
-
-body[data-theme='light'] #tubeCanvas {
-  filter: invert(1) hue-rotate(180deg);
-}
 
 /* ── Near-card vicinity: softens and starts to sink ────────────────── */
 body[data-near-card='true']:not([data-on-card='true']) #tube-cursor-portal {
@@ -415,28 +389,6 @@ body[data-on-method-card='true'] .cursor-dot {
   box-shadow: 0 0 28px rgba(255, 92, 26, 0.6);
 }
 
-.theme-toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-mid);
-  transition: all 0.25s ease;
-}
-
-.theme-toggle-btn:hover {
-  color: var(--text-pure);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-body[data-theme="dark"] .icon-sun { display: none; }
-body[data-theme="dark"] .icon-moon { display: block; }
-body[data-theme="light"] .icon-sun { display: block; }
-body[data-theme="light"] .icon-moon { display: none; }
 
 .mobile-menu-btn {
   display: none;

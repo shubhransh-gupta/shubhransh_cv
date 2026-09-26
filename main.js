@@ -227,22 +227,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ── 7. THEME SWITCHER ──────────────────────────────────────────────────
-  const themeToggle = document.getElementById('themeToggle');
-  const savedTheme = localStorage.getItem('sg_theme') || 'dark';
-  document.body.setAttribute('data-theme', savedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = document.body.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.body.setAttribute('data-theme', next);
-      localStorage.setItem('sg_theme', next);
-
-      // Re-initialize WebGL tube cursor with corresponding light/dark palette
-      initTubeCursor();
-    });
-  }
+  // ── 7. PERMANENT DARK THEME LOCK ───────────────────────────────────────
+  document.body.setAttribute('data-theme', 'dark');
+  try {
+    localStorage.removeItem('sg_theme');
+  } catch (e) {}
 
 
   // ── 8. SCROLL SPY & NAVBAR ELEVATION ───────────────────────────────────

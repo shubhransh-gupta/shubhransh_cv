@@ -1,19 +1,53 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="20%" r="70%">
-      <stop stop-color="#FFFFFF" stop-opacity="0.8"/>
-      <stop offset="0.35" stop-color="#C2A4FF" stop-opacity="0.7"/>
-      <stop offset="1" stop-color="#5B21B6"/>
+    <!-- Deep Ambient Glow -->
+    <radialGradient id="neonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5C1A" stop-opacity="0.65"/>
+      <stop offset="60%" stop-color="#FF5C1A" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FF5C1A" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="glass" x1="12" y1="6" x2="52" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF" stop-opacity="0.42"/>
-      <stop offset="0.48" stop-color="#C2A4FF" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#10091E" stop-opacity="0.8"/>
+
+    <!-- Glowing Tube Stroke Gradient -->
+    <linearGradient id="tubeGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFA672"/>
+      <stop offset="35%" stop-color="#FF5C1A"/>
+      <stop offset="70%" stop-color="#FF8A3D"/>
+      <stop offset="100%" stop-color="#E03A00"/>
     </linearGradient>
+
+    <!-- Text / Core Monogram Gradient -->
+    <linearGradient id="sgText" x1="16" y1="18" x2="48" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FFF0E6"/>
+      <stop offset="100%" stop-color="#FFCCAA"/>
+    </linearGradient>
+
+    <!-- Subtle Glass Border -->
+    <linearGradient id="cardBorder" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF5C1A" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="rgba(255, 255, 255, 0.12)"/>
+      <stop offset="100%" stop-color="#FF5C1A" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Filter for subtle drop-shadow glow -->
+    <filter id="tubeFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#FF5C1A" flood-opacity="0.85"/>
+    </filter>
   </defs>
-  <rect width="64" height="64" rx="18" fill="#080511"/>
-  <circle cx="34" cy="30" r="28" fill="url(#glow)" opacity="0.45"/>
-  <rect x="15" y="8" width="34" height="48" rx="10" fill="url(#glass)" stroke="white" stroke-opacity="0.35"/>
-  <rect x="25" y="13" width="14" height="3" rx="1.5" fill="#080511"/>
-  <text x="32" y="41" text-anchor="middle" fill="#F7F2FF" font-family="Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="-2">SG</text>
+
+  <!-- Dark Background Plate with Smooth Squircle -->
+  <rect width="64" height="64" rx="16" fill="#08080A"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" stroke="url(#cardBorder)" stroke-width="1"/>
+
+  <!-- Radial Core Glow -->
+  <circle cx="32" cy="32" r="26" fill="url(#neonGlow)"/>
+
+  <!-- Swirling Glowing 3D Tube Orbital Ring (Back) -->
+  <ellipse cx="32" cy="32" rx="23" ry="11.5" transform="rotate(-28 32 32)" stroke="url(#tubeGrad)" stroke-width="2.5" stroke-linecap="round" filter="url(#tubeFilter)"/>
+
+  <!-- Bold SG Monogram -->
+  <text x="32" y="39" text-anchor="middle" fill="url(#sgText)" font-family="system-ui, -apple-system, 'SF Pro Display', 'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="900" letter-spacing="-0.5">SG</text>
+
+  <!-- Front Arc of the Tube Ring passing in front of SG -->
+  <path d="M 12 37 C 18 46 44 48 52 31" stroke="url(#tubeGrad)" stroke-width="2.8" stroke-linecap="round" filter="url(#tubeFilter)"/>
 </svg>
