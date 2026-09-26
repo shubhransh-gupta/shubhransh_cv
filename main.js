@@ -1,50 +1,233 @@
 // ==========================================================================
 // SHUBHRANSH GUPTA — PORTFOLIO RUNTIME
-// Interactions, Glow Cursor, Theme, Marquee & Navigation
+// 3D WebGL Tube Cursor, Card Depth Absorption, 3D Card Tilt,
+// Vicinity Physics, Theme Switcher, Navigation & Marquee
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. MOUSE GLOW & CURSOR DOT
+  // ── 1. TUBE CURSOR PALETTES & 3D WEBGL INITIALIZATION ──────────────────
+  const PALETTES = {
+    dark: {
+      tubes: ['#E03A00', '#FF5C1A', '#FF8A3D', '#FFA672', '#FFCC80'],
+      lights: { intensity: 120, colors: ['#D94E0E', '#FF6A2C', '#FF8533', '#FFB87A', '#FFD89E', '#E8B86F'] }
+    },
+    light: {
+      tubes: ['#E03A00', '#FF5C1A', '#FF7A3C', '#FFA060', '#FFC08A'],
+      lights: { intensity: 120, colors: ['#D94E0E', '#FF6A2C', '#FF8A4A', '#FFB070', '#F59E4B', '#E8B86F'] }
+    }
+  };
+
+  let tubeApp = null;
+
+  async function initTubeCursor() {
+    const canvas = document.getElementById('tubeCanvas');
+    if (!canvas || window.innerWidth <= 992) return;
+
+    const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
+
+    let Ctor = null;
+    try {
+      const mod = await import('./vendor/tubes1.min.js');
+      Ctor = mod.default || mod;
+    } catch (err) {
+      try {
+        const mod = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+        Ctor = mod.default || mod;
+      } catch (e) {
+        console.warn('Tube cursor module could not be loaded:', e);
+        return;
+      }
+    }
+
+    if (!Ctor) return;
+
+    const theme = document.body.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const palette = PALETTES[theme] || PALETTES.dark;
+
+    try {
+      if (tubeApp && tubeApp.dispose) {
+        tubeApp.dispose();
+      }
+      tubeApp = Ctor(canvas, {
+        tubes: {
+          colors: palette.tubes,
+          lights: { intensity: 120, colors: palette.lights }
+        }
+      });
+
+      // Force canvas buffer to match window viewport immediately
+      const resizeHandler = () => {
+        window.dispatchEvent(new Event('resize'));
+      };
+      requestAnimationFrame(resizeHandler);
+      window.addEventListener('resize', resizeHandler);
+    } catch (err) {
+      console.warn('Tube cursor initialization error:', err);
+    }
+  }
+
+  // Initialize WebGL Tube Cursor
+  initTubeCursor();
+
+
+  // ── 2. MOUSE GLOW & CURSOR DOT TRACKER ─────────────────────────────────
   const cursorGlow = document.getElementById('cursorGlow');
   const cursorDot = document.getElementById('cursorDot');
+  const isTouchDevice = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
 
-  if (cursorGlow && cursorDot && window.innerWidth > 992) {
+  if (cursorGlow && cursorDot && !isTouchDevice && window.innerWidth > 992) {
     let mouseX = -500;
     let mouseY = -500;
     let glowX = -500;
     let glowY = -500;
+    let idleTimer = null;
 
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+
       cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      cursorDot.style.opacity = '1';
+
+      if (!document.body.hasAttribute('data-on-card') && !document.body.hasAttribute('data-on-method-card')) {
+        cursorGlow.style.opacity = '1';
+      }
+
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        cursorGlow.style.opacity = '0';
+      }, 180);
+    }, { passive: true });
+
+    window.addEventListener('mouseleave', () => {
+      cursorGlow.style.opacity = '0';
+      cursorDot.style.opacity = '0';
     });
 
-    // Smooth RAF follower for the soft glow
-    function animateCursor() {
+    // Smooth lerp follower for ambient cursor glow
+    function animateGlow() {
       glowX += (mouseX - glowX) * 0.12;
       glowY += (mouseY - glowY) * 0.12;
       cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
-      requestAnimationFrame(animateCursor);
+      requestAnimationFrame(animateGlow);
     }
-    requestAnimationFrame(animateCursor);
+    requestAnimationFrame(animateGlow);
+  }
 
-    // Interactive element hover scale
-    const hoverTargets = document.querySelectorAll('a, button, .work-card, .method-card, .timeline-card, .bento-cell');
-    hoverTargets.forEach((target) => {
-      target.addEventListener('mouseenter', () => {
-        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(2.2)`;
-        cursorDot.style.background = '#ffffff';
+
+  // ── 3. CARD 3D INTERACTIVE TILT & IDLE FLOATING SWAY ───────────────────
+  const caseCards = document.querySelectorAll('[data-case-card]');
+  const PUSH_DEG = 7;
+
+  caseCards.forEach((card) => {
+    card.__3d = {
+      isHovered: false,
+      mx: 0,
+      my: 0
+    };
+
+    card.addEventListener('mouseenter', () => {
+      card.__3d.isHovered = true;
+      document.body.setAttribute('data-on-card', 'true');
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.__3d.mx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      card.__3d.my = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.__3d.isHovered = false;
+      card.__3d.mx = 0;
+      card.__3d.my = 0;
+      document.body.removeAttribute('data-on-card');
+    });
+  });
+
+  // Continuous rAF animation loop for 3D card tilt & gentle idle sway
+  function tick3d() {
+    const t = performance.now();
+
+    if (!isTouchDevice && window.innerWidth > 992) {
+      caseCards.forEach((card) => {
+        const s = card.__3d;
+        if (!s) return;
+
+        if (s.isHovered) {
+          // Dynamic tilt tracking cursor with inverse 3D push
+          const rx = s.my * PUSH_DEG;
+          const ry = -s.mx * PUSH_DEG;
+          card.style.transform = `perspective(3000px) translateZ(-22px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+        } else {
+          // Subtle idle sinusoidal sway for organic floating sensation
+          const rx = Math.sin(t / 2400) * 2.2;
+          const ry = Math.sin(t / 2800) * 2.8;
+          const rz = Math.sin(t / 3800) * 0.8;
+          card.style.transform = `perspective(3000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg)`;
+        }
       });
-      target.addEventListener('mouseleave', () => {
-        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(1)`;
-        cursorDot.style.background = 'var(--accent)';
-      });
+    }
+
+    requestAnimationFrame(tick3d);
+  }
+  requestAnimationFrame(tick3d);
+
+
+  // ── 4. VICINITY DETECTION (PRE-ABSORPTION NEAR CARDS) ──────────────────
+  const VICINITY_PX = 35;
+  const absorbTargets = document.querySelectorAll('[data-case-card], [data-method-card]');
+
+  window.addEventListener('mousemove', (e) => {
+    if (document.body.hasAttribute('data-on-card') || document.body.hasAttribute('data-on-method-card')) {
+      document.body.removeAttribute('data-near-card');
+      return;
+    }
+
+    let minDist = Infinity;
+    absorbTargets.forEach((card) => {
+      const r = card.getBoundingClientRect();
+      const dx = Math.max(r.left - e.clientX, 0, e.clientX - r.right);
+      const dy = Math.max(r.top - e.clientY, 0, e.clientY - r.bottom);
+      const dist = Math.hypot(dx, dy);
+      if (dist < minDist) minDist = dist;
+    });
+
+    if (minDist <= VICINITY_PX) {
+      document.body.setAttribute('data-near-card', 'true');
+    } else {
+      document.body.removeAttribute('data-near-card');
+    }
+  }, { passive: true });
+
+
+  // ── 5. METHOD CARDS & BENTO HOVER ABSORPTION ───────────────────────────
+  const methodCards = document.querySelectorAll('[data-method-card]');
+  methodCards.forEach((card) => {
+    card.addEventListener('mouseenter', () => {
+      document.body.setAttribute('data-on-method-card', 'true');
+    });
+    card.addEventListener('mouseleave', () => {
+      document.body.removeAttribute('data-on-method-card');
+    });
+  });
+
+
+  // ── 6. NAVBAR HOVER TUBE ABSORPTION ────────────────────────────────────
+  const navbarPill = document.querySelector('.navbar-wrapper');
+  if (navbarPill) {
+    navbarPill.addEventListener('mouseenter', () => {
+      document.body.setAttribute('data-on-card', 'true');
+    });
+    navbarPill.addEventListener('mouseleave', () => {
+      document.body.removeAttribute('data-on-card');
     });
   }
 
-  // 2. THEME SWITCHER
+
+  // ── 7. THEME SWITCHER ──────────────────────────────────────────────────
   const themeToggle = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('sg_theme') || 'dark';
   document.body.setAttribute('data-theme', savedTheme);
@@ -55,10 +238,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const next = current === 'dark' ? 'light' : 'dark';
       document.body.setAttribute('data-theme', next);
       localStorage.setItem('sg_theme', next);
+
+      // Re-initialize WebGL tube cursor with corresponding light/dark palette
+      initTubeCursor();
     });
   }
 
-  // 3. SCROLL SPY & NAVBAR ELEVATION
+
+  // ── 8. SCROLL SPY & NAVBAR ELEVATION ───────────────────────────────────
   const navbar = document.getElementById('navbar');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
@@ -93,7 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { passive: true });
 
-  // 4. MOBILE DRAWER TOGGLE
+
+  // ── 9. MOBILE DRAWER TOGGLE ────────────────────────────────────────────
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
 
@@ -117,7 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. TESTIMONIALS DRAGGABLE & AUTO-SCROLL MARQUEE
+
+  // ── 10. TESTIMONIALS DRAGGABLE & AUTO-SCROLL MARQUEE ───────────────────
   const marqueeWrapper = document.getElementById('marqueeWrapper');
   const marqueeTrack = document.getElementById('marqueeTrack');
 
@@ -139,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function autoScroll() {
       if (!isPaused && !isDown) {
         marqueeWrapper.scrollLeft += autoScrollSpeed;
-        // Reset when halfway through the duplicated track
         if (marqueeWrapper.scrollLeft >= marqueeTrack.scrollWidth / 2) {
           marqueeWrapper.scrollLeft = 0;
         }
@@ -181,7 +369,8 @@ document.addEventListener('DOMContentLoaded', () => {
     marqueeWrapper.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
   }
 
-  // 6. COPY EMAIL BUTTON
+
+  // ── 11. TRANSMISSION COPY EMAIL ────────────────────────────────────────
   const copyBtn = document.getElementById('copyEmailBtn');
   const copyText = document.getElementById('copyEmailText');
 

@@ -126,6 +126,98 @@ button {
   opacity: 0.09;
 }
 
+/* ==========================================================================
+   TUBE CURSOR — 3D FLUID WEBGL TUBE TRAILS & HOVER ABSORPTION
+   ========================================================================== */
+#tube-cursor-portal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9000;
+  mix-blend-mode: plus-lighter;
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.4) 88%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0.4) 88%, transparent 100%);
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.5s ease;
+  will-change: opacity, transform, filter;
+}
+
+#tubeCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+body[data-theme='light'] #tube-cursor-portal {
+  mix-blend-mode: multiply;
+  opacity: 0.7;
+}
+
+body[data-theme='light'] #tubeCanvas {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* ── Near-card vicinity: softens and starts to sink ────────────────── */
+body[data-near-card='true']:not([data-on-card='true']) #tube-cursor-portal {
+  opacity: 0.52;
+  transform: scale(0.97);
+  filter: blur(1.5px);
+}
+
+/* ── Full absorption on card hover: tubes sink into the background plane ── */
+body[data-on-card='true'] #tube-cursor-portal {
+  z-index: 1;
+  opacity: 0.48;
+  transform: scale(0.90);
+  filter: blur(7px);
+}
+
+/* Elevate card above sinking tubes */
+body[data-on-card='true'] [data-case-card]:hover,
+body[data-on-card='true'] .work-card:hover,
+body[data-on-card='true'] .timeline-card:hover {
+  z-index: 25;
+}
+
+/* Navbar hover absorption */
+body[data-on-card='true'] .navbar-pill {
+  z-index: 100;
+}
+
+/* ── Method-card and bento absorption override ─────────────────────── */
+body[data-on-method-card='true'] #tube-cursor-portal {
+  z-index: 1;
+  opacity: 0.5;
+  transform: scale(0.95);
+  filter: blur(4px);
+}
+
+/* Cursor glow halo is silenced inside cards */
+body[data-on-card='true'] .cursor-glow,
+body[data-on-method-card='true'] .cursor-glow {
+  opacity: 0 !important;
+}
+
+/* Cursor dot collapses to minimal sharp dot on card */
+body[data-on-card='true'] .cursor-dot {
+  box-shadow: none !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin-top: -4px !important;
+  margin-left: -4px !important;
+}
+
+body[data-on-method-card='true'] .cursor-dot {
+  background: var(--accent) !important;
+  box-shadow: none !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin-top: -4px !important;
+  margin-left: -4px !important;
+}
+
 /* MOUSE GLOW & DOT (DESKTOP) */
 .cursor-glow {
   position: fixed;
@@ -139,7 +231,7 @@ button {
   background: radial-gradient(circle, rgba(255, 92, 26, 0.16) 0%, rgba(255, 92, 26, 0) 70%);
   pointer-events: none;
   z-index: 9998;
-  transition: transform 0.12s ease-out, opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   transform: translate(-500px, -500px);
 }
 
@@ -153,15 +245,15 @@ button {
   margin-left: -4px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
+  box-shadow: 0 0 14px var(--accent);
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.06s ease-out, opacity 0.2s ease;
+  transition: box-shadow 0.25s ease, width 0.2s ease, height 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
   transform: translate(-500px, -500px);
 }
 
-@media (max-width: 992px) {
-  .cursor-glow, .cursor-dot {
+@media (pointer: coarse), (max-width: 992px) {
+  #tube-cursor-portal, .cursor-glow, .cursor-dot {
     display: none !important;
   }
 }
@@ -680,6 +772,7 @@ body[data-theme="light"] .icon-moon { display: none; }
   display: flex;
   flex-direction: column;
   gap: 36px;
+  perspective: 3000px;
 }
 
 .work-card {
@@ -687,14 +780,15 @@ body[data-theme="light"] .icon-moon { display: none; }
   border: 1px solid var(--border-card);
   border-radius: 28px;
   overflow: hidden;
-  transition: all 0.35s var(--ease-smooth);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.2s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
 .work-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-4px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 92, 26, 0.12);
 }
 
@@ -1298,13 +1392,14 @@ body[data-theme="light"] .icon-moon { display: none; }
   border: 1px solid var(--border-card);
   border-radius: 24px;
   padding: 32px 36px;
-  transition: all 0.3s var(--ease-smooth);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.2s ease-out, border-color 0.3s ease, background 0.3s ease;
 }
 
 .timeline-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
-  transform: translateX(4px);
 }
 
 .timeline-dot {
