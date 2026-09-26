@@ -22,8 +22,8 @@
     ],
     audioEnabled: true,
     currentProjectIndex: 0,
-    totalProjects: 6,
-    activeCompany: 'lenskart'
+    totalProjects: 9,
+    activeCompany: 'pocketfm'
   };
 
   // --------------------------------------------------------------------------
@@ -243,15 +243,20 @@
       state.currentView = index;
       playCyberTone('tab');
 
-      // Update views
+      // Update views - prevent inactive views from bleeding through
       views.forEach((v, i) => {
         if (i === index) {
           v.classList.add('active');
+          v.style.display = 'block';
           if (typeof gsap !== 'undefined') {
             gsap.fromTo(v, { opacity: 0, y: 15, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'power2.out' });
           }
         } else {
           v.classList.remove('active');
+          v.style.display = 'none';
+          if (typeof gsap !== 'undefined') {
+            gsap.set(v, { clearProps: 'all' });
+          }
         }
       });
 
@@ -344,18 +349,19 @@
   // EXPERIENCE DUAL-PANE TERMINAL
   // --------------------------------------------------------------------------
   const companyData = {
-    lenskart: {
-      title: 'Lenskart',
-      role: 'SDE 2 · Mar 2026 – Present · Bengaluru, India',
+    pocketfm: {
+      title: 'Pocket FM',
+      role: 'SDE 2 · Aug 2026 – Present · Bengaluru, India',
       badge: 'CURRENT ENGAGEMENT',
-      metricVal: '99.4% → 99.9%',
-      metricSub: 'CRASH-FREE SESSIONS',
+      metricVal: '100% HANG-FREE',
+      metricSub: 'STORE REVAMP V2 & 99.9% CRASH-FREE',
       bullets: [
-        'Improved crash-free sessions from <strong>99.4% to 99.9%</strong> by identifying, diagnosing, and resolving critical memory leaks and retain cycles in the core product listing and catalogue search modules.',
-        'Architected and built an automated CI/CD pipeline using <strong>GitHub Actions, Firebase App Distribution, and Xcode build tools</strong> — eliminating manual release overhead and vastly increasing release deployment frequency.',
-        'Optimized view rendering performance and memory footprint across complex infinite-scroll product catalogues, ensuring butter-smooth 120Hz scrolling on ProMotion displays.'
+        'Spearheaded end-to-end architecture and implementation of <strong>Store Revamp V2</strong>, enabling coin purchases via Apple In-App Purchase (StoreKit 2), Juspay gateway integration, and rewarded ad unlock flows with rich fluid animations.',
+        'Eliminated UI thread bottlenecks through rigorous <strong>hang detection, thread sanitization, and GCD queue profiling</strong>, achieving 100% hang-free performance and maintaining <strong>99.9% crash-free sessions</strong> at massive audio streaming scale.',
+        'Overhauled <strong>Notification &amp; Tracking Permissions</strong>, implementing privacy-compliant telemetry to diagnose real-time hangs and crashes while driving higher user opt-in for episodic content releases.',
+        'Re-engineered <strong>Profile Revamp V2</strong> featuring dual-channel OTP verification across email and phone, streamlining listener onboarding and reinforcing account security.'
       ],
-      tags: ['Swift 6.0', 'UIKit & SwiftUI', 'GitHub Actions CI/CD', 'Firebase Distribution', 'Memory Profiling', 'Instruments']
+      tags: ['Swift 6.0', 'StoreKit 2', 'Juspay SDK', 'Rewarded Ads', 'Hang Diagnostics', 'GCD Thread Sanitization', 'Instruments', 'Firebase Crashlytics']
     },
     navi: {
       title: 'Navi',
@@ -491,6 +497,7 @@
     const counter = document.getElementById('projCounter');
     const cards = document.querySelectorAll('.project-hud-card');
     if (!cards.length) return;
+    state.totalProjects = cards.length;
 
     function updateCarousel() {
       if (counter) {

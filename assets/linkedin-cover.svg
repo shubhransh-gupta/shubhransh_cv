@@ -46,7 +46,7 @@
     <rect x="90" y="70" width="860" height="256" rx="34" fill="url(#glass)" stroke="white" stroke-opacity="0.17"/>
     <path d="M118 118H205" stroke="#C2A4FF" stroke-width="6" stroke-linecap="round"/>
     <text x="118" y="170" fill="#FFFFFF" font-family="Geist, Inter, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-2.2">Shubhransh Gupta</text>
-    <text x="120" y="215" fill="#C2A4FF" font-family="Geist, Inter, Arial, sans-serif" font-size="27" font-weight="700">iOS Engineer @ Lenskart</text>
+    <text x="120" y="215" fill="#C2A4FF" font-family="Geist, Inter, Arial, sans-serif" font-size="27" font-weight="700">Senior iOS Engineer @ Pocket FM</text>
     <text x="120" y="252" fill="#EAE5EC" fill-opacity="0.82" font-family="Geist, Inter, Arial, sans-serif" font-size="22" font-weight="500">Swift " SwiftUI " UIKit " CoreData " Architecture " High-scale mobile apps</text>
     <text x="120" y="292" fill="#ADACAC" font-family="Geist, Inter, Arial, sans-serif" font-size="18" font-weight="500">Building polished mobile experiences with scalable engineering systems.</text>
   </g>
