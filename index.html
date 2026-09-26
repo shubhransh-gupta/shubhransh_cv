@@ -3,1289 +3,899 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shubhransh Gupta — Senior iOS Engineer crafting seamless mobile experiences. Swift, SwiftUI, Modular Architecture & High Performance.">
-  <meta name="theme-color" content="#030205">
-  <title>SHUBHRANSH GUPTA // SENIOR iOS ENGINEER</title>
+  <title>Shubhransh Gupta — Senior iOS Engineer · Systems &amp; Concurrency</title>
+  <meta name="description" content="Senior iOS Engineer with 5+ years of experience across Pocket FM, Navi, MakeMyTrip & Nuclei. Specializing in Swift 6.0 concurrency, high-scale performance, and native developer tooling.">
+  
+  <meta property="og:title" content="Shubhransh Gupta — Senior iOS Engineer">
+  <meta property="og:description" content="Designing & architecting high-scale iOS applications across Pocket FM, Navi, MakeMyTrip and Nuclei. 99.9% crash-free, 100% hang-free.">
+  <meta property="og:image" content="assets/hero-avatar.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-cyber">
-  <!-- Custom Cyber Crosshair Cursor -->
-  <div class="cyber-cursor" id="cyberCursor" aria-hidden="true">
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-    <div class="cursor-corner tl"></div>
-    <div class="cursor-corner tr"></div>
-    <div class="cursor-corner bl"></div>
-    <div class="cursor-corner br"></div>
-  </div>
+<body data-theme="dark">
+  <!-- Glowing Cursor Follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
 
-  <!-- Background Canvas & Grid Overlays -->
-  <div class="cyber-bg-layer" aria-hidden="true">
-    <canvas id="cyberCanvas"></canvas>
-    <div class="cyber-grid"></div>
-    <div class="cyber-scanlines"></div>
-    <div class="cyber-vignette"></div>
-    <div class="cyber-ambient-glow"></div>
-  </div>
+  <!-- Ambient Light Orbs -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-mid"></div>
 
-  <!-- MAIN HUD WRAPPER -->
-  <div class="hud-container" id="hudContainer">
+  <!-- FLOATING PILL NAVBAR -->
+  <header class="navbar-wrapper">
+    <nav class="navbar-pill" id="navbar">
+      <!-- Brand / Logo -->
+      <a href="#home" class="brand-link">
+        <span class="brand-monogram">SG</span>
+        <span class="brand-name">Shubhransh Gupta</span>
+        <span class="brand-divider">—</span>
+        <span class="brand-role">SENIOR IOS ENGINEER</span>
+      </a>
 
-    <!-- TOP HUD HEADER -->
-    <header class="hud-topbar" id="hudTopBar">
-      <div class="topbar-left">
-        <a href="#home" class="cyber-logo" data-nav="0" aria-label="Home">
-          <div class="logo-box">
-            <span class="logo-text">SG</span>
-            <div class="logo-glitch-layer">SG</div>
-          </div>
-          <div class="logo-meta">
-            <span class="logo-name">SHUBHRANSH GUPTA</span>
-            <span class="logo-role"><span class="live-dot"></span>SYS.ONLINE // SR. iOS ENG</span>
-          </div>
-        </a>
+      <!-- Center Nav Links -->
+      <div class="nav-links">
+        <a href="#home" class="nav-link active" data-nav="home">Home</a>
+        <a href="#works" class="nav-link" data-nav="works">Work</a>
+        <a href="#about" class="nav-link" data-nav="about">About</a>
+        <a href="#method" class="nav-link" data-nav="method">Method</a>
+        <a href="#experience" class="nav-link" data-nav="experience">Experience</a>
+        <a href="#testimonials" class="nav-link" data-nav="testimonials">Echoes</a>
+        <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
       </div>
 
-      <div class="topbar-center">
-        <div class="mission-tag">
-          <span class="mission-icon">◈</span>
-          <span class="mission-label" id="currentViewLabel">THE WHALE · SYS.01 // HERO</span>
-          <span class="mission-coord">12.9716° N, 77.5946° E</span>
-        </div>
-      </div>
-
-      <div class="topbar-right">
-        <div class="telemetry-item sound-ctrl" id="soundToggle" role="button" tabindex="0" title="Toggle UI Audio (M)">
-          <span class="sound-wave" id="soundWaveIcon">
-            <i></i><i></i><i></i><i></i>
-          </span>
-          <span class="sound-label" id="soundLabel">SFX: ON</span>
-        </div>
-        <div class="telemetry-item sys-time" id="hudClock">22:30:00 IST</div>
-        <div class="telemetry-item sys-status">
-          <span class="status-indicator"></span>
-          <span>POCKET FM SDE-2</span>
-        </div>
-        <a href="assets/resume/Shubhransh-Gupta-Resume.pdf" download="Shubhransh-Gupta-Resume.pdf" class="btn-top-resume">
-          <span class="btn-bracket">[</span>RESUME.PDF<span class="btn-bracket">]</span>
+      <!-- Right CTAs -->
+      <div class="nav-actions">
+        <a href="assets/resume/Shubhransh-Gupta-Resume.pdf" download="Shubhransh-Gupta-Resume.pdf" class="btn-pill-resume">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Resume</span>
         </a>
-        <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-hud-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
-          <span></span><span></span><span></span>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
         </button>
-      </div>
-    </header>
 
-    <!-- LEFT HUD RAIL (Profile & Comm Links) -->
-    <aside class="hud-rail hud-rail-left" id="hudRailLeft">
-      <div class="rail-frame-corner top-l"></div>
-      <div class="rail-frame-corner bottom-l"></div>
-
-      <!-- Holographic Avatar Card -->
-      <div class="avatar-holo-card">
-        <div class="avatar-viewfinder">
-          <div class="vf-corner c-tl"></div>
-          <div class="vf-corner c-tr"></div>
-          <div class="vf-corner c-bl"></div>
-          <div class="vf-corner c-br"></div>
-          <div class="avatar-scanline"></div>
-          <img src="assets/portrait-hero.png" alt="Shubhransh Gupta" class="avatar-img" id="avatarImg">
-          <div class="avatar-overlay-grid"></div>
-        </div>
-        <div class="avatar-badge">
-          <span class="badge-dot"></span>
-          <span class="badge-text">STATUS: ACTIVE // SDE-2</span>
-        </div>
-      </div>
-
-      <!-- Quick Bio Stats in Rail -->
-      <div class="rail-bio">
-        <div class="rail-item">
-          <span class="rail-k">EXPERTISE</span>
-          <span class="rail-v">SWIFT 6.0 / UIKit / SwiftUI</span>
-        </div>
-        <div class="rail-item">
-          <span class="rail-k">LOCATION</span>
-          <span class="rail-v">Bengaluru, India</span>
-        </div>
-        <div class="rail-item">
-          <span class="rail-k">SCALE METRIC</span>
-          <span class="rail-v text-cyan">99.9% Crash-Free</span>
-        </div>
-      </div>
-
-      <!-- Social / Transmission Rail Links -->
-      <div class="rail-socials">
-        <span class="rail-sec-label">COMM CHANNELS</span>
-        <div class="social-links-grid">
-          <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer" class="social-link-btn" title="GitHub">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            <span>GH</span>
-          </a>
-          <a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank" rel="noreferrer" class="social-link-btn" title="LinkedIn">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
-            <span>IN</span>
-          </a>
-          <a href="https://medium.com/@Shubhransh-Gupta" target="_blank" rel="noreferrer" class="social-link-btn" title="Medium">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            <span>MD</span>
-          </a>
-          <a href="mailto:gupta.subhransh@gmail.com" class="social-link-btn" title="Email Transmission">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span>MAIL</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rail Footer Hardware Telemetry -->
-      <div class="rail-telemetry">
-        <div class="telemetry-bar"><span style="width: 85%"></span></div>
-        <div class="telemetry-meta">
-          <span>LATENCY: 12ms</span>
-          <span>SYS.OK</span>
-        </div>
-      </div>
-    </aside>
-
-    <!-- RIGHT HUD RAIL (Diagnostics & Live Gauges) -->
-    <aside class="hud-rail hud-rail-right" id="hudRailRight">
-      <div class="rail-frame-corner top-r"></div>
-      <div class="rail-frame-corner bottom-r"></div>
-
-      <div class="diag-header">
-        <span class="diag-icon">⬢</span>
-        <span class="diag-title">SYSTEM DIAGNOSTICS</span>
-      </div>
-
-      <!-- Metric 1: Experience -->
-      <div class="diag-card">
-        <div class="diag-num-wrap">
-          <span class="diag-num" data-count="5">5</span><span class="diag-unit">+</span>
-        </div>
-        <div class="diag-info">
-          <span class="diag-title-sm">YEARS EXP</span>
-          <span class="diag-sub">High-Scale iOS</span>
-        </div>
-        <div class="diag-meter"><div class="meter-fill" style="width: 96%"></div></div>
-      </div>
-
-      <!-- Metric 2: Companies -->
-      <div class="diag-card">
-        <div class="diag-num-wrap">
-          <span class="diag-num" data-count="4">4</span>
-        </div>
-        <div class="diag-info">
-          <span class="diag-title-sm">TOP TIER COS</span>
-          <span class="diag-sub">Pocket FM, Navi, MMT, Nuclei</span>
-        </div>
-        <div class="diag-meter"><div class="meter-fill" style="width: 90%"></div></div>
-      </div>
-
-      <!-- Metric 3: Crash Free -->
-      <div class="diag-card highlight-cyan">
-        <div class="diag-num-wrap">
-          <span class="diag-num" data-count="99">99</span><span class="diag-unit">.9%</span>
-        </div>
-        <div class="diag-info">
-          <span class="diag-title-sm">CRASH-FREE</span>
-          <span class="diag-sub">Peak Production Scale</span>
-        </div>
-        <div class="diag-meter"><div class="meter-fill fill-cyan" style="width: 99.9%"></div></div>
-      </div>
-
-      <!-- Metric 4: Repos -->
-      <div class="diag-card">
-        <div class="diag-num-wrap">
-          <span class="diag-num" data-count="59">59</span><span class="diag-unit">+</span>
-        </div>
-        <div class="diag-info">
-          <span class="diag-title-sm">REPOSITORIES</span>
-          <span class="diag-sub">Open Source & Tools</span>
-        </div>
-        <div class="diag-meter"><div class="meter-fill" style="width: 82%"></div></div>
-      </div>
-
-      <!-- Mini Spectrum Visualizer -->
-      <div class="hud-audio-viz">
-        <span class="viz-label">SIGNAL FREQUENCY</span>
-        <div class="spectrum-bars" id="spectrumBars">
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-
-      <!-- Direct Action in Right Rail -->
-      <div class="rail-actions">
-        <a href="#contact" class="btn-rail-contact" data-nav="5">
-          <span>INITIATE TRANSMISSION</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </aside>
-
-    <!-- CENTER HUD STAGE (View Panels) -->
-    <main class="hud-stage" id="hudStage">
-
-      <!-- VIEW 01: HERO / HOME -->
-      <section class="hud-view view-hero active" id="view-home" data-view="0">
-        <div class="hero-stage-content">
-          <!-- Full-bleed Whale Background -->
-          <div class="whale-viewport" id="whaleViewport">
-            <div class="whale-left-fade"></div>
-            <div class="whale-glow-pool"></div>
-            <img src="assets/cyber_whale_hero.jpg" alt="The Whale - Bioluminescent Cyber Creature" class="whale-img" id="whaleImg">
-            <div class="whale-reticle r-tl"></div>
-            <div class="whale-reticle r-tr"></div>
-            <div class="whale-reticle r-bl"></div>
-            <div class="whale-reticle r-br"></div>
-          </div>
-
-          <!-- Hero HUD Dossier Card (Left Overlay matching Figma) -->
-          <div class="hero-dossier-card">
-            <div class="dossier-header">
-              <span class="dossier-tag">SYSTEM OVERVIEW</span>
-              <span class="dossier-id">ID: SG-9411</span>
-            </div>
-            <h1 class="dossier-headline">
-              BUILDING MOBILE EXPERIENCES THAT MOVE &amp; INSPIRE
-            </h1>
-            <p class="dossier-body">
-              I'm <strong class="text-white">Shubhransh Gupta</strong> — a Senior iOS Engineer with 5+ years crafting high-impact consumer apps across <span class="text-crimson">Pocket FM</span>, <span class="text-crimson">Navi</span>, <span class="text-crimson">MakeMyTrip</span> &amp; <span class="text-crimson">Nuclei</span>. Swift-first architecture engineered for millions.
-            </p>
-            
-            <div class="dossier-metrics-row">
-              <div class="d-metric">
-                <span class="d-val">99.9%</span>
-                <span class="d-lbl">CRASH FREE</span>
-              </div>
-              <div class="d-metric">
-                <span class="d-val">5+ YRS</span>
-                <span class="d-lbl">EXPERIENCE</span>
-              </div>
-              <div class="d-metric">
-                <span class="d-val">50M+</span>
-                <span class="d-lbl">USERS SERVED</span>
-              </div>
-            </div>
-
-            <div class="dossier-actions">
-              <button class="btn-cyber-primary" data-nav="1">
-                <span>EXPLORE DOSSIER</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-              <a href="assets/resume/Shubhransh-Gupta-Resume.pdf" download="Shubhransh-Gupta-Resume.pdf" class="btn-cyber-secondary">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                <span>DOWNLOAD RESUME</span>
-              </a>
-            </div>
-
-            <div class="dossier-tech-ticker">
-              <span class="ticker-label">STACK:</span>
-              <span class="ticker-content">Swift · SwiftUI · UIKit · Concurrency · MVVM · Swinject · CI/CD</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 02: ABOUT / DOSSIER -->
-      <section class="hud-view" id="view-about" data-view="1">
-        <div class="panel-inner">
-          <div class="panel-header">
-            <div class="panel-title-wrap">
-              <span class="panel-sec-num">02</span>
-              <div>
-                <h2 class="panel-title">AGENT DOSSIER &amp; ARCHITECTURE</h2>
-                <p class="panel-subtitle">Engineering beyond the interface · Scalable systems built for velocity &amp; rock-solid reliability</p>
-              </div>
-            </div>
-            <div class="panel-status-pill">
-              <span class="pill-dot"></span>
-              <span>VERIFIED PROFILE</span>
-            </div>
-          </div>
-
-          <!-- 4-Card HUD Grid matching Figma screen 2 -->
-          <div class="about-cards-grid">
-            <article class="hud-glass-card">
-              <div class="card-corner c-tl"></div>
-              <div class="card-corner c-br"></div>
-              <div class="card-header-bar">
-                <span class="card-num">01</span>
-                <span class="card-tag">CORE PHILOSOPHY</span>
-              </div>
-              <h3 class="card-title">Crafting Native Mobile Precision</h3>
-              <p class="card-text">
-                I approach iOS not just as a UI canvas, but as a high-concurrency operating environment. From eliminating micro-stutters and memory leaks to modularizing multi-target applications with SPM and Swinject, my code is engineered to maintain high velocity without sacrificing stability.
-              </p>
-              <div class="card-tags">
-                <span>Swift 6.0</span>
-                <span>Structured Concurrency</span>
-                <span>Instruments</span>
-              </div>
-            </article>
-
-            <article class="hud-glass-card">
-              <div class="card-corner c-tl"></div>
-              <div class="card-corner c-br"></div>
-              <div class="card-header-bar">
-                <span class="card-num">02</span>
-                <span class="card-tag">CONSUMER SCALE</span>
-              </div>
-              <h3 class="card-title">Shipping to Millions Daily</h3>
-              <p class="card-text">
-                Engineered production features at Pocket FM (Store Revamp V2, 100% hang-free optimization), MakeMyTrip (Zero Cancellation, Unified Flights SDK), Navi (UPI onboarding, SceneDelegate lifecycle migration), and Nuclei (multi-tenant banking SDKs). Built for real-world network fluctuations and massive user concurrency.
-              </p>
-              <div class="card-tags">
-                <span>Pocket FM</span>
-                <span>MakeMyTrip</span>
-                <span>Navi</span>
-                <span>Nuclei</span>
-              </div>
-            </article>
-
-            <article class="hud-glass-card">
-              <div class="card-corner c-tl"></div>
-              <div class="card-corner c-br"></div>
-              <div class="card-header-bar">
-                <span class="card-num">03</span>
-                <span class="card-tag">ACADEMIC FOUNDATION</span>
-              </div>
-              <h3 class="card-title">BNM Institute of Technology</h3>
-              <div class="edu-details">
-                <p class="edu-degree">B.E. Computer Science · GPA 8.45 / 10</p>
-                <p class="edu-meta">Aug 2017 – Jun 2021 · Bengaluru, India</p>
-                <ul class="edu-list">
-                  <li><strong>Innovative Project Labs Championship Award</strong> · 2018</li>
-                  <li><strong>Ranked #1 College-Wide on GeeksForGeeks</strong> · 2021</li>
-                </ul>
-              </div>
-              <div class="card-tags">
-                <span>Algorithms</span>
-                <span>Data Structures</span>
-                <span>Distributed Systems</span>
-              </div>
-            </article>
-
-            <article class="hud-glass-card">
-              <div class="card-corner c-tl"></div>
-              <div class="card-corner c-br"></div>
-              <div class="card-header-bar">
-                <span class="card-num">04</span>
-                <span class="card-tag">DEVELOPER TOOLING</span>
-              </div>
-              <h3 class="card-title">Tooling Creator &amp; Open Source</h3>
-              <p class="card-text">
-                Author of <strong>ShubhranshProxy</strong> (native macOS HTTP/S debugging proxy), <strong>JSONLens</strong> (fast private client-side JSON playground), and <strong>MirrorLock</strong> (screen lock and bot-sitting utility for AI coding agents). Passionate about empowering developer ergonomics.
-              </p>
-              <div class="card-tags">
-                <span>macOS Dev</span>
-                <span>CGEventTap</span>
-                <span>MIT Open Source</span>
-              </div>
-            </article>
-          </div>
-
-          <!-- Recommendations Carousel / Grid -->
-          <div class="endorsements-section">
-            <div class="sec-bar">
-              <span class="sec-bar-title">COLLEAGUE RECOGNITION &amp; ENDORSEMENTS</span>
-              <span class="sec-bar-meta">VERIFIED RECOMMENDATIONS</span>
-            </div>
-            <div class="testimonials-dual-grid">
-              <div class="quote-card">
-                <div class="quote-symbol">“</div>
-                <p class="quote-body">
-                  "I've had the pleasure of working alongside Shubhransh at MakeMyTrip, and I can confidently say that he's one of the most dedicated and resourceful professionals I've worked with. He consistently demonstrates a deep understanding of iOS development and delivers clean, scalable architecture under tight deadlines."
-                </p>
-                <div class="quote-author">
-                  <div class="qa-avatar">SV</div>
-                  <div>
-                    <strong>Shani Vishwakarma</strong>
-                    <span>MakeMyTrip · iOS Pod Lead</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="quote-card">
-                <div class="quote-symbol">“</div>
-                <p class="quote-body">
-                  "I had the pleasure of working with Shubhransh on the flight unification task, and his contributions were truly outstanding. He tackled complex challenges with ease, especially at the kernel level, unifying cross-platform SDK dependencies with high elegance and modularity."
-                </p>
-                <div class="quote-author">
-                  <div class="qa-avatar">HC</div>
-                  <div>
-                    <strong>Harsh Chauhan</strong>
-                    <span>MakeMyTrip · Flight Unification Engine</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="quote-card">
-                <div class="quote-symbol">“</div>
-                <p class="quote-body">
-                  "I had the pleasure of working with Shubhransh at MakeMyTrip in the Hotels domain, and I was consistently impressed by his deep understanding of iOS development and exceptional problem-solving skills. Whether tackling complex architectural challenges or fine-tuning UI/UX interactions, he always brought a thoughtful, detail-oriented approach."
-                </p>
-                <div class="quote-author">
-                  <div class="qa-avatar">PC</div>
-                  <div>
-                    <strong>Pratyush Chaser</strong>
-                    <span>MakeMyTrip · Hotels</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="quote-card">
-                <div class="quote-symbol">“</div>
-                <p class="quote-body">
-                  "Shubhransh consistently demonstrated a high level of skill in every task he undertook across the Fund Transfer and UPI modules. Proactive and ready to take leadership whenever necessary, he converts business requirements into robust code very easily and readily."
-                </p>
-                <div class="quote-author">
-                  <div class="qa-avatar">SK</div>
-                  <div>
-                    <strong>Shubham Kushwaha</strong>
-                    <span>Nuclei · Fund Transfer &amp; UPI</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 03: SKILLS / MATRIX -->
-      <section class="hud-view" id="view-skills" data-view="2">
-        <div class="panel-inner">
-          <div class="panel-header">
-            <div class="panel-title-wrap">
-              <span class="panel-sec-num">03</span>
-              <div>
-                <h2 class="panel-title">CAPABILITY MATRIX &amp; TECH RADAR</h2>
-                <p class="panel-subtitle">Comprehensive arsenal across mobile engineering, architecture, tooling &amp; release automation</p>
-              </div>
-            </div>
-            <!-- Category Filter Pills -->
-            <div class="skills-filter-bar" id="skillsFilterBar">
-              <button class="filter-pill active" data-filter="all">ALL</button>
-              <button class="filter-pill" data-filter="lang">LANGUAGES &amp; FRAMEWORKS</button>
-              <button class="filter-pill" data-filter="arch">ARCHITECTURE</button>
-              <button class="filter-pill" data-filter="tools">RELEASE &amp; CI/CD</button>
-              <button class="filter-pill" data-filter="devtools">DEV TOOLS &amp; RE</button>
-            </div>
-          </div>
-
-          <!-- Interactive Tech Grid matching Figma r2_frame3 -->
-          <div class="skills-tech-grid" id="skillsGrid">
-            <!-- Swift -->
-            <div class="tech-card" data-cat="lang">
-              <div class="tech-icon-wrap icon-swift">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.25 15.65c-.04.07-.48.74-1.34 1.54-1.63 1.52-3.79 2.51-6.17 2.65 4.54-3.69 5.86-9.17 3.52-13.84 2.82 2.62 4.6 6.36 4.6 10.51 0 .61-.04 1.21-.11 1.8 1.4-.87 2.4-2.3 2.75-3.99-1.04 1.34-2.12 2.12-3.25 1.33zM6.54 18.3c1.78.9 3.82 1.36 5.96 1.25-3.08-1.46-5.59-3.92-7.05-7.04C6.5 13.9 8.2 14.8 10 15c-3.15-.96-5.49-3.32-6.52-6.42 1.52 1.09 3.32 1.76 5.25 1.86-3.8-1.5-6.26-4.9-6.43-9.02 0 0 1.95 2.12 4.96 3.14-1.89-2.09-2.73-4.98-2.35-7.85 0 0 2.21 2.25 5.83 3.65C9.69-.16 8.7-2.3 9.4-4.5c1.69 2.44 4.54 4.38 7.84 5.34-1.58-1.84-2.25-4.32-1.74-6.73 2.28 2.71 5.76 4.75 9.77 5.56-1.53-1.67-2.3-3.98-2.07-6.35 2.84 3.06 7.02 5.26 11.75 5.85-2.08-1.36-3.47-3.64-3.63-6.28 3.94 3.4 9.17 5.56 14.88 5.76-2.58-.93-4.57-2.88-5.38-5.46 4.8 3.33 10.74 5.28 17.13 5.14"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">Swift 6.0</span>
-                  <span class="tc-score">98%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 98%"></div></div>
-                <span class="tc-desc">Modern Swift, Actors, Concurrency, Generics, Value Semantics</span>
-              </div>
-            </div>
-
-            <!-- SwiftUI -->
-            <div class="tech-card" data-cat="lang">
-              <div class="tech-icon-wrap icon-swiftui">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">SwiftUI</span>
-                  <span class="tc-score">94%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 94%"></div></div>
-                <span class="tc-desc">Declarative UI, State Management, Custom Layouts, Animations</span>
-              </div>
-            </div>
-
-            <!-- UIKit -->
-            <div class="tech-card" data-cat="lang">
-              <div class="tech-icon-wrap icon-uikit">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M4 6h16v12H4zM2 4v16h20V4H2zm4 4h4v4H6zm6 0h6v2h-6zm0 4h4v2h-4z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">UIKit</span>
-                  <span class="tc-score">96%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 96%"></div></div>
-                <span class="tc-desc">AutoLayout, Custom Transition Coordinators, UICollectionView DiffableDataSource</span>
-              </div>
-            </div>
-
-            <!-- Architecture -->
-            <div class="tech-card" data-cat="arch">
-              <div class="tech-icon-wrap icon-arch">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">MVVM-C &amp; VIPER</span>
-                  <span class="tc-score">95%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 95%"></div></div>
-                <span class="tc-desc">Clean Architecture, Coordinator Pattern, Reactive Data Flow, Testability</span>
-              </div>
-            </div>
-
-            <!-- Swinject / DI -->
-            <div class="tech-card" data-cat="arch">
-              <div class="tech-icon-wrap icon-di">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">Dependency Injection</span>
-                  <span class="tc-score">93%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 93%"></div></div>
-                <span class="tc-desc">Swinject Container, Assembly Registration, Service Locators, Mocking</span>
-              </div>
-            </div>
-
-            <!-- SPM & CocoaPods -->
-            <div class="tech-card" data-cat="arch">
-              <div class="tech-icon-wrap icon-pkg">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.8l7 3.5-3.5 1.75L8.5 6.55 12 4.8zm-8 4.2l7 3.5v7l-7-3.5V9zm9 10.5v-7l7-3.5v7l-7 3.5z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">SPM &amp; Modular SDKs</span>
-                  <span class="tc-score">94%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 94%"></div></div>
-                <span class="tc-desc">Unified Flight SDK, Binary Frameworks, Micro-feature Architecture</span>
-              </div>
-            </div>
-
-            <!-- Concurrency & Combine -->
-            <div class="tech-card" data-cat="lang">
-              <div class="tech-icon-wrap icon-concur">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.5-1.46C16.27 17.81 14.28 19 12 19z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">Combine &amp; Concurrency</span>
-                  <span class="tc-score">91%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 91%"></div></div>
-                <span class="tc-desc">Async/Await, TaskGroup, CurrentValueSubject, PassthroughSubject, Backpressure</span>
-              </div>
-            </div>
-
-            <!-- CoreData & Persistence -->
-            <div class="tech-card" data-cat="lang">
-              <div class="tech-icon-wrap icon-db">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 4.24 2 7v10c0 2.76 4.48 5 10 5s10-2.24 10-5V7c0-2.76-4.48-5-10-5zm0 2c4.42 0 8 1.57 8 3s-3.58 3-8 3-8-1.57-8-3 3.58-3 8-3zm0 16c-4.42 0-8-1.57-8-3v-2.22c1.94 1.34 4.82 2.22 8 2.22s6.06-.88 8-2.22V17c0 1.43-3.58 3-8 3zm0-5c-4.42 0-8-1.57-8-3v-2.22c1.94 1.34 4.82 2.22 8 2.22s6.06-.88 8-2.22V12c0 1.43-3.58 3-8 3z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">CoreData &amp; Persistence</span>
-                  <span class="tc-score">90%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 90%"></div></div>
-                <span class="tc-desc">Model Migrations, Thread-safe Contexts, NSFetchedResultsController, Keychain</span>
-              </div>
-            </div>
-
-            <!-- CI/CD & Fastlane -->
-            <div class="tech-card" data-cat="tools">
-              <div class="tech-icon-wrap icon-cicd">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">GitHub Actions &amp; CI/CD</span>
-                  <span class="tc-score">92%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 92%"></div></div>
-                <span class="tc-desc">Automated Builds, Firebase App Distribution, TestFlight, Fastlane Match</span>
-              </div>
-            </div>
-
-            <!-- Xcode & Instruments -->
-            <div class="tech-card" data-cat="tools">
-              <div class="tech-icon-wrap icon-xcode">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">Xcode Instruments</span>
-                  <span class="tc-score">94%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 94%"></div></div>
-                <span class="tc-desc">Leaks, Allocations, Time Profiler, View Hierarchy, GPU Metal Diagnostics</span>
-              </div>
-            </div>
-
-            <!-- macOS Tooling & CGEventTap -->
-            <div class="tech-card" data-cat="devtools">
-              <div class="tech-icon-wrap icon-macos">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.88-.95.04-2.1.63-2.78 1.42-.58.68-1.1 1.76-1.06 2.82 1.06.08 2.14-.54 2.83-1.36z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">macOS Systems &amp; CGEventTap</span>
-                  <span class="tc-score">89%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 89%"></div></div>
-                <span class="tc-desc">Native AppKit, System Event Interception, Security Scopes, Touch ID API</span>
-              </div>
-            </div>
-
-            <!-- HTTP Proxy Engines -->
-            <div class="tech-card" data-cat="devtools">
-              <div class="tech-icon-wrap icon-proxy">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-              </div>
-              <div class="tech-card-main">
-                <div class="tc-head">
-                  <span class="tc-name">HTTP(S) Proxy &amp; HAR Engine</span>
-                  <span class="tc-score">95%</span>
-                </div>
-                <div class="tc-bar"><div class="tc-fill" style="width: 95%"></div></div>
-                <span class="tc-desc">SSL Decryption, Man-in-the-Middle, Breakpoints, Rewrite Rules, Throttling</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 04: EXPERIENCE / TIMELINE -->
-      <section class="hud-view" id="view-experience" data-view="3">
-        <div class="panel-inner">
-          <div class="panel-header">
-            <div class="panel-title-wrap">
-              <span class="panel-sec-num">04</span>
-              <div>
-                <h2 class="panel-title">OPERATIONAL TIMELINE &amp; CAREER</h2>
-                <p class="panel-subtitle">Engineering at scale &amp; velocity across India's leading consumer tech ecosystems</p>
-              </div>
-            </div>
-            <div class="panel-status-pill">
-              <span class="pill-dot live"></span>
-              <span>CURRENT: POCKET FM SDE-2</span>
-            </div>
-          </div>
-
-          <!-- Dual-Pane Experience Terminal matching Figma screen 4 -->
-          <div class="exp-terminal">
-            <!-- Left Company Selector Tabs -->
-            <div class="exp-selector-rail" id="expCompanyTabs">
-              <button class="exp-tab-btn active" data-company="pocketfm">
-                <div class="exp-tab-glow"></div>
-                <div class="exp-tab-inner">
-                  <span class="exp-tab-index">01</span>
-                  <div class="exp-tab-info">
-                    <strong class="exp-tab-name">Pocket FM</strong>
-                    <span class="exp-tab-period">Aug 2026 – Present</span>
-                  </div>
-                  <span class="exp-tab-status">CURRENT</span>
-                </div>
-              </button>
-
-              <button class="exp-tab-btn" data-company="navi">
-                <div class="exp-tab-glow"></div>
-                <div class="exp-tab-inner">
-                  <span class="exp-tab-index">02</span>
-                  <div class="exp-tab-info">
-                    <strong class="exp-tab-name">Navi</strong>
-                    <span class="exp-tab-period">May 2025 – Mar 2026</span>
-                  </div>
-                  <span class="exp-tab-status">FINTECH</span>
-                </div>
-              </button>
-
-              <button class="exp-tab-btn" data-company="mmt">
-                <div class="exp-tab-glow"></div>
-                <div class="exp-tab-inner">
-                  <span class="exp-tab-index">03</span>
-                  <div class="exp-tab-info">
-                    <strong class="exp-tab-name">MakeMyTrip</strong>
-                    <span class="exp-tab-period">Jan 2024 – May 2025</span>
-                  </div>
-                  <span class="exp-tab-status">TRAVEL</span>
-                </div>
-              </button>
-
-              <button class="exp-tab-btn" data-company="nuclei">
-                <div class="exp-tab-glow"></div>
-                <div class="exp-tab-inner">
-                  <span class="exp-tab-index">04</span>
-                  <div class="exp-tab-info">
-                    <strong class="exp-tab-name">Nuclei</strong>
-                    <span class="exp-tab-period">May 2021 – Dec 2023</span>
-                  </div>
-                  <span class="exp-tab-status">BANKING</span>
-                </div>
-              </button>
-            </div>
-
-            <!-- Right Dynamic Inspection Terminal -->
-            <div class="exp-detail-pane" id="expDetailPane">
-              <!-- Content injected via JS / default Pocket FM -->
-              <div class="exp-pane-head">
-                <div>
-                  <span class="exp-badge">CURRENT ENGAGEMENT</span>
-                  <h3 class="exp-co-title">Pocket FM</h3>
-                  <p class="exp-role-line">SDE 2 · Aug 2026 – Present · Bengaluru, India</p>
-                </div>
-                <div class="exp-stats-box">
-                  <span class="stat-highlight">100% HANG-FREE</span>
-                  <span class="stat-sub">STORE REVAMP V2 &amp; 99.9% CRASH-FREE</span>
-                </div>
-              </div>
-
-              <div class="exp-pane-body">
-                <h4 class="exp-section-label">MISSION OBJECTIVES &amp; IMPACT</h4>
-                <ul class="exp-bullets">
-                  <li>
-                    <span class="bullet-glow"></span>
-                    <span>Spearheaded end-to-end architecture and implementation of <strong>Store Revamp V2</strong>, enabling coin purchases via Apple In-App Purchase (StoreKit 2), Juspay gateway integration, and rewarded ad unlock flows with rich fluid animations.</span>
-                  </li>
-                  <li>
-                    <span class="bullet-glow"></span>
-                    <span>Eliminated UI thread bottlenecks through rigorous <strong>hang detection, thread sanitization, and GCD queue profiling</strong>, achieving 100% hang-free performance and maintaining <strong>99.9% crash-free sessions</strong> at massive audio streaming scale.</span>
-                  </li>
-                  <li>
-                    <span class="bullet-glow"></span>
-                    <span>Overhauled <strong>Notification &amp; Tracking Permissions</strong>, implementing privacy-compliant telemetry to diagnose real-time hangs and crashes while driving higher user opt-in for episodic content releases.</span>
-                  </li>
-                  <li>
-                    <span class="bullet-glow"></span>
-                    <span>Re-engineered <strong>Profile Revamp V2</strong> featuring dual-channel OTP verification across email and phone, streamlining listener onboarding and reinforcing account security.</span>
-                  </li>
-                </ul>
-
-                <h4 class="exp-section-label">TECHNOLOGY STACK</h4>
-                <div class="exp-tags-row">
-                  <span class="e-tag">Swift 6.0</span>
-                  <span class="e-tag">StoreKit 2</span>
-                  <span class="e-tag">Juspay SDK</span>
-                  <span class="e-tag">Rewarded Ads</span>
-                  <span class="e-tag">Hang Diagnostics</span>
-                  <span class="e-tag">GCD Thread Sanitization</span>
-                  <span class="e-tag">Instruments</span>
-                  <span class="e-tag">Firebase Crashlytics</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 05: PROJECTS / ARTIFACTS -->
-      <section class="hud-view" id="view-projects" data-view="4">
-        <div class="panel-inner">
-          <div class="panel-header">
-            <div class="panel-title-wrap">
-              <span class="panel-sec-num">05</span>
-              <div>
-                <h2 class="panel-title">INNOVATION ARTIFACTS &amp; OPEN SOURCE</h2>
-                <p class="panel-subtitle">Flagship developer utilities, AI agent tools &amp; hackathon-winning architectures</p>
-              </div>
-            </div>
-            <!-- Carousel Controls -->
-            <div class="carousel-nav-arrows">
-              <button class="c-arrow-btn" id="projPrev" aria-label="Previous Project">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-              <span class="proj-indicator" id="projCounter">01 / 09</span>
-              <button class="c-arrow-btn" id="projNext" aria-label="Next Project">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Futuristic 3D Coverflow / Carousel matching Figma screen 5 -->
-          <div class="projects-carousel-stage" id="projectsTrack">
-            <!-- Project 1: ShubhranshProxy -->
-            <article class="project-hud-card active" data-index="0">
-              <div class="p-card-top">
-                <span class="p-tag tag-flagship">2026 · FLAGSHIP OPEN SOURCE</span>
-                <span class="p-badge-platform">macOS NATIVE</span>
-              </div>
-              <div class="p-card-visual bg-proxy">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">SP</span>
-                  <h4>ShubhranshProxy</h4>
-                  <span class="p-sub-text">HTTP(S) Debugging Engine</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">ShubhranshProxy — HTTP(S) Debugging Proxy</h3>
-                <p class="p-desc">
-                  Native macOS proxy engine built in pure Swift. Intelligent domain sidebar, selective SSL decryption, zero-config mobile capture on same Wi‑Fi, Map Local, breakpoints, network throttling, and full HAR export — free from day one.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>EXPLORE WEBSITE</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                  <a href="https://github.com/shubhransh-gupta/ShubhranshProxy/releases/latest/download/ShubhranshProxy.dmg" target="_blank" rel="noreferrer" class="p-btn-sec">
-                    <span>DOWNLOAD DMG</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 2: JSONLens -->
-            <article class="project-hud-card" data-index="1">
-              <div class="p-card-top">
-                <span class="p-tag tag-web">2026 · NEW WEB TOOL</span>
-                <span class="p-badge-platform">ZERO-TRACKING</span>
-              </div>
-              <div class="p-card-visual bg-json">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">JL</span>
-                  <h4>JSONLens</h4>
-                  <span class="p-sub-text">Private Developer Playground</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">JSONLens — Fast, Private JSON Playground</h3>
-                <p class="p-desc">
-                  A high-velocity, 100% client-side JSON workbench for developers. Format, validate, and visualize structures with tree, diagram, and table views. Includes semantic diff comparison, Postman-style API client, and instant code generation.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://shubhransh-gupta.github.io/jsonlens/" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>LAUNCH JSONLENS</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                  <a href="https://github.com/shubhransh-gupta/jsonlens" target="_blank" rel="noreferrer" class="p-btn-sec">
-                    <span>GITHUB</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 3: MirrorLock -->
-            <article class="project-hud-card" data-index="2">
-              <div class="p-card-top">
-                <span class="p-tag tag-ai">2026 · AI WORKFLOWS</span>
-                <span class="p-badge-platform">macOS · MIT</span>
-              </div>
-              <div class="p-card-visual bg-mirror">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">ML</span>
-                  <h4>MirrorLock</h4>
-                  <span class="p-sub-text">Botsitting for AI Agents</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">MirrorLock — Botsitting for AI Agents</h3>
-                <p class="p-desc">
-                  Lock your Mac so observers can watch your autonomous AI agent code without touching your keyboard or trackpad. Live desktop mirror behind a dimmed overlay, hard input lock via CGEventTap, Touch ID instant unlock, and multi-display support.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://shubhransh-gupta.github.io/mirrorLock/" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>EXPLORE WEBSITE</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                  <a href="https://github.com/shubhransh-gupta/mirrorLock/releases/latest" target="_blank" rel="noreferrer" class="p-btn-sec">
-                    <span>DOWNLOAD APP</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 4: toknt -->
-            <article class="project-hud-card" data-index="3">
-              <div class="p-card-top">
-                <span class="p-tag tag-ai">2026 · AI &amp; DEVELOPER TOOL</span>
-                <span class="p-badge-platform">macOS · SWIFTUI</span>
-              </div>
-              <div class="p-card-visual bg-proxy">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">TK</span>
-                  <h4>toknt</h4>
-                  <span class="p-sub-text">Context &amp; Token Optimizer</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">toknt — AI Context &amp; Token Optimizer</h3>
-                <p class="p-desc">
-                  Local-first token optimization engine for AI coding agents (Cursor, Claude Code, Codex). Eliminates redundant context and deduplicates prompt payloads while preserving full reasoning intelligence. 100% SwiftUI with zero telemetry.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://github.com/shubhransh-gupta/toknt" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>VIEW ON GITHUB</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 5: Courier City -->
-            <article class="project-hud-card" data-index="4">
-              <div class="p-card-top">
-                <span class="p-tag tag-web">2026 · 3D WEB GAME</span>
-                <span class="p-badge-platform">THREE.JS · CANNON-ES</span>
-              </div>
-              <div class="p-card-visual bg-json">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">CC</span>
-                  <h4>Courier City</h4>
-                  <span class="p-sub-text">3D Open World Simulator</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">Courier City — 3D Open World Game</h3>
-                <p class="p-desc">
-                  A GTA-inspired 3D open-world browser game powered by Three.js and Cannon-ES physics. Drive cars, pilot aircraft, and explore Bangalore's Silk Board, Vidhana Soudha, and the Taj Mahal with zero installation.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://github.com/shubhransh-gupta/courier-city" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>VIEW ON GITHUB</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 6: Scavengers Assemble -->
-            <article class="project-hud-card" data-index="5">
-              <div class="p-card-top">
-                <span class="p-tag tag-ai">2026 · MULTI-AGENT AI</span>
-                <span class="p-badge-platform">AI HARNESS</span>
-              </div>
-              <div class="p-card-visual bg-mirror">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">SA</span>
-                  <h4>Scavengers</h4>
-                  <span class="p-sub-text">Multi-Agent Coding Harness</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">Scavengers Assemble — Multi-Agent Harness</h3>
-                <p class="p-desc">
-                  Earth's mightiest multi-agent coding harness — orchestrating Claude, Gemini, GPT-4, Grok &amp; local Ollama models with coordinated tool use, role specialization, and interactive 3D simulation.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://github.com/shubhransh-gupta/scavengers-assemble" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>VIEW ON GITHUB</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 7: Cobalion -->
-            <article class="project-hud-card" data-index="6">
-              <div class="p-card-top">
-                <span class="p-tag tag-hackathon">HACKATHON WINNER</span>
-                <span class="p-badge-platform">AI COMPLIANCE</span>
-              </div>
-              <div class="p-card-visual bg-cobalion">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">CB</span>
-                  <h4>Cobalion</h4>
-                  <span class="p-sub-text">Regulatory AI Engine</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">Cobalion — AI Compliance Platform</h3>
-                <p class="p-desc">
-                  Awarded Best Innovative Project at Navi Hackathon. Autonomous AI platform scraping regulatory circulars from NPCI and SEBI (PDF/HTML) with LLM contextual parsing and stakeholder compliance risk alerting pipelines.
-                </p>
-                <div class="p-links-row">
-                  <button class="p-btn-pri" onclick="openSpecModal('cobalion')">
-                    <span>INSPECT ARCHITECTURE</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 8: POGO -->
-            <article class="project-hud-card" data-index="7">
-              <div class="p-card-top">
-                <span class="p-tag tag-hackathon">NUCLEI HACKATHON</span>
-                <span class="p-badge-platform">FINTECH REWARDS</span>
-              </div>
-              <div class="p-card-visual bg-pogo">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">PG</span>
-                  <h4>POGO</h4>
-                  <span class="p-sub-text">Gift Voucher Ecosystem</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">POGO — Gift Voucher Platform</h3>
-                <p class="p-desc">
-                  Developed end-to-end gift voucher platform using Swift (iOS client), Python backend, and MySQL database, powering reward-based recharge workflows during the Nuclei Hackathon.
-                </p>
-                <div class="p-links-row">
-                  <button class="p-btn-pri" onclick="openSpecModal('pogo')">
-                    <span>INSPECT ARCHITECTURE</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 9: Swift Contact App -->
-            <article class="project-hud-card" data-index="8">
-              <div class="p-card-top">
-                <span class="p-tag tag-oss">OPEN SOURCE</span>
-                <span class="p-badge-platform">CLEAN ARCHITECTURE</span>
-              </div>
-              <div class="p-card-visual bg-contactapp">
-                <div class="p-vis-glow"></div>
-                <div class="p-vis-content">
-                  <span class="p-logo-mono">SC</span>
-                  <h4>Contact App</h4>
-                  <span class="p-sub-text">Native iOS UIKit</span>
-                </div>
-              </div>
-              <div class="p-card-info">
-                <h3 class="p-title">Swift Contact Application</h3>
-                <p class="p-desc">
-                  A reference native iOS contact management app built with Swift, demonstrating clean architecture principles, testable data persistence, and UIKit design patterns.
-                </p>
-                <div class="p-links-row">
-                  <a href="https://github.com/ShubhranshGupta/Swift-Contact-Application" target="_blank" rel="noreferrer" class="p-btn-pri">
-                    <span>GITHUB REPOSITORY</span>
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 06: CONTACT / TRANSMISSION -->
-      <section class="hud-view" id="view-contact" data-view="5">
-        <div class="panel-inner">
-          <div class="panel-header">
-            <div class="panel-title-wrap">
-              <span class="panel-sec-num">06</span>
-              <div>
-                <h2 class="panel-title">TRANSMISSION TERMINAL &amp; COMMS</h2>
-                <p class="panel-subtitle">Initiate direct communication for high-impact iOS engineering, architecture &amp; advisory</p>
-              </div>
-            </div>
-            <div class="panel-status-pill">
-              <span class="pill-dot live"></span>
-              <span>CHANNELS OPEN</span>
-            </div>
-          </div>
-
-          <!-- Dual Column matching Figma contact screen 7 -->
-          <div class="contact-dual-stage">
-            <!-- Left Contact Form & Transmission Links -->
-            <div class="contact-comm-console">
-              <div class="console-box">
-                <div class="console-header">
-                  <span class="console-prompt">&gt; INITIATE_COMM_PROTOCOL</span>
-                  <span class="console-secure">ENCRYPTED // TLS 1.3</span>
-                </div>
-                
-                <div class="direct-comm-cards">
-                  <!-- Email Card -->
-                  <div class="comm-card">
-                    <div class="comm-card-icon">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </div>
-                    <div class="comm-card-text">
-                      <span class="comm-type">PRIMARY TRANSMISSION EMAIL</span>
-                      <strong class="comm-val">gupta.subhransh@gmail.com</strong>
-                    </div>
-                    <div class="comm-card-actions">
-                      <button class="btn-copy-email" id="copyEmailBtn" data-email="gupta.subhransh@gmail.com">
-                        <span>COPY</span>
-                      </button>
-                      <a href="mailto:gupta.subhransh@gmail.com" class="btn-open-mail">
-                        <span>SEND</span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- LinkedIn -->
-                  <a href="https://www.linkedin.com/in/shubhransh-gupta" target="_blank" rel="noreferrer" class="comm-card link-hover">
-                    <div class="comm-card-icon">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
-                    </div>
-                    <div class="comm-card-text">
-                      <span class="comm-type">PROFESSIONAL NETWORK</span>
-                      <strong class="comm-val">linkedin.com/in/shubhransh-gupta</strong>
-                    </div>
-                    <span class="comm-arrow">→</span>
-                  </a>
-
-                  <!-- GitHub -->
-                  <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noreferrer" class="comm-card link-hover">
-                    <div class="comm-card-icon">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    </div>
-                    <div class="comm-card-text">
-                      <span class="comm-type">CODE REPOSITORIES</span>
-                      <strong class="comm-val">github.com/shubhransh-gupta</strong>
-                    </div>
-                    <span class="comm-arrow">→</span>
-                  </a>
-
-                  <!-- Medium -->
-                  <a href="https://medium.com/@Shubhransh-Gupta" target="_blank" rel="noreferrer" class="comm-card link-hover">
-                    <div class="comm-card-icon">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-                    </div>
-                    <div class="comm-card-text">
-                      <span class="comm-type">ENGINEERING WRITING</span>
-                      <strong class="comm-val">medium.com/@Shubhransh-Gupta</strong>
-                    </div>
-                    <span class="comm-arrow">→</span>
-                  </a>
-                </div>
-
-                <!-- Fast Contact Transmission Form -->
-                <form class="transmission-form" id="transForm" onsubmit="handleFormSubmit(event)">
-                  <div class="form-title-row">
-                    <span class="ft-code">&gt; QUICK_SIGNAL_PING</span>
-                  </div>
-                  <div class="form-inputs-row">
-                    <input type="text" id="senderName" placeholder="YOUR NAME / CALLSIGN" required class="cyber-input">
-                    <input type="email" id="senderEmail" placeholder="YOUR TRANSMISSION EMAIL" required class="cyber-input">
-                  </div>
-                  <textarea id="senderMsg" rows="3" placeholder="BRIEF MESSAGE / ROLE DETAILS / PROJECT CONTEXT..." required class="cyber-input"></textarea>
-                  <button type="submit" class="btn-cyber-submit">
-                    <span>DISPATCH TRANSMISSION</span>
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                  </button>
-                  <div class="trans-status" id="transStatus"></div>
-                </form>
-              </div>
-            </div>
-
-            <!-- Right Holographic Cyber Mech Figure matching Figma contact frame -->
-            <div class="contact-figure-stage">
-              <div class="figure-frame">
-                <div class="figure-reticle f-tl"></div>
-                <div class="figure-reticle f-tr"></div>
-                <div class="figure-reticle f-bl"></div>
-                <div class="figure-reticle f-br"></div>
-                <div class="figure-laser-scan"></div>
-                <img src="assets/cyber_figure_contact.jpg" alt="Cybernetic Exoskeleton Hologram" class="figure-img" id="figureImg">
-                <div class="figure-telemetry-tag">
-                  <span class="f-code">SYS.RECON // ACTIVE</span>
-                  <span class="f-val">BENGALURU, INDIA</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- BOTTOM FLOATING HUD DOCK / NAVIGATION -->
-    <nav class="hud-dock" id="hudDock" aria-label="Main Navigation">
-      <div class="dock-frame">
-        <div class="dock-left-meta">
-          <span class="meta-dot"></span>
-          <span class="meta-label">SYS_v2026.09</span>
-        </div>
-
-        <div class="dock-tabs" id="dockTabs">
-          <button class="dock-tab active" data-nav="0">
-            <span class="tab-index">01</span>
-            <span class="tab-name">HOME</span>
-          </button>
-          <button class="dock-tab" data-nav="1">
-            <span class="tab-index">02</span>
-            <span class="tab-name">ABOUT</span>
-          </button>
-          <button class="dock-tab" data-nav="2">
-            <span class="tab-index">03</span>
-            <span class="tab-name">SKILLS</span>
-          </button>
-          <button class="dock-tab" data-nav="3">
-            <span class="tab-index">04</span>
-            <span class="tab-name">EXPERIENCE</span>
-          </button>
-          <button class="dock-tab" data-nav="4">
-            <span class="tab-index">05</span>
-            <span class="tab-name">PROJECTS</span>
-          </button>
-          <button class="dock-tab" data-nav="5">
-            <span class="tab-index">06</span>
-            <span class="tab-name">CONTACT</span>
-          </button>
-        </div>
-
-        <div class="dock-right-meta">
-          <span class="meta-label">© 2026 SHUBHRANSH GUPTA</span>
-        </div>
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
 
-    <!-- Mobile Navigation Drawer -->
+    <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <div class="drawer-header">
-        <span class="drawer-logo">SHUBHRANSH GUPTA</span>
-        <button class="drawer-close" id="drawerClose">✕</button>
-      </div>
-      <ul class="drawer-links">
-        <li><a href="#home" data-nav="0"><span>01</span> HOME</a></li>
-        <li><a href="#about" data-nav="1"><span>02</span> ABOUT</a></li>
-        <li><a href="#skills" data-nav="2"><span>03</span> SKILLS</a></li>
-        <li><a href="#experience" data-nav="3"><span>04</span> EXPERIENCE</a></li>
-        <li><a href="#projects" data-nav="4"><span>05</span> PROJECTS</a></li>
-        <li><a href="#contact" data-nav="5"><span>06</span> CONTACT</a></li>
-      </ul>
-      <div class="drawer-footer">
-        <a href="assets/resume/Shubhransh-Gupta-Resume.pdf" download="Shubhransh-Gupta-Resume.pdf" class="btn-cyber-primary">
-          <span>DOWNLOAD RESUME PDF</span>
+      <div class="drawer-links">
+        <a href="#home" class="mobile-nav-link" data-nav="home">Home</a>
+        <a href="#works" class="mobile-nav-link" data-nav="works">Work</a>
+        <a href="#about" class="mobile-nav-link" data-nav="about">About</a>
+        <a href="#method" class="mobile-nav-link" data-nav="method">Method</a>
+        <a href="#experience" class="mobile-nav-link" data-nav="experience">Experience</a>
+        <a href="#testimonials" class="mobile-nav-link" data-nav="testimonials">Echoes</a>
+        <a href="#contact" class="mobile-nav-link" data-nav="contact">Contact</a>
+        <a href="assets/resume/Shubhransh-Gupta-Resume.pdf" download="Shubhransh-Gupta-Resume.pdf" class="mobile-resume-btn">
+          <span>Download Resume</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
+  </header>
 
-  </div>
+  <!-- MAIN CONTAINER -->
+  <main class="page-content">
 
-  <!-- Holographic Architecture Spec Modal matching Figma r2_frame4 -->
-  <div class="spec-modal" id="specModal" aria-hidden="true" role="dialog">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-window">
-      <div class="modal-corner mc-tl"></div>
-      <div class="modal-corner mc-tr"></div>
-      <div class="modal-corner mc-bl"></div>
-      <div class="modal-corner mc-br"></div>
-      <div class="modal-top">
-        <div class="modal-top-left">
-          <span class="modal-symbol">◈</span>
-          <span class="modal-title-text" id="modalTitle">PROJECT ARCHITECTURE INSPECT</span>
+    <!-- HERO SECTION -->
+    <section class="section-hero" id="home">
+      <div class="hero-container">
+        
+        <!-- Big Headline -->
+        <h1 class="hero-title">
+          Architecting the dialogues<br>
+          between <span class="serif-accent">Code &amp; Systems</span>
+        </h1>
+
+        <!-- 3D Avatar Centerpiece with Glowing Halo -->
+        <div class="hero-avatar-wrapper">
+          <div class="avatar-glow-ring"></div>
+          <div class="avatar-inner">
+            <img src="assets/hero-avatar.jpg" alt="Shubhransh Gupta — Senior iOS Engineer 3D Character" class="avatar-img" id="heroAvatar">
+          </div>
         </div>
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Modal">✕ [ESC]</button>
-      </div>
-      <div class="modal-content-area" id="modalBody">
-        <!-- Injected via JavaScript -->
-      </div>
-    </div>
-  </div>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <!-- Name & Badges -->
+        <div class="hero-meta">
+          <div class="hero-name-label">I'M SHUBHRANSH GUPTA</div>
+          <div class="hero-tags-row">
+            <span>Senior iOS Engineer</span>
+            <span class="dot-sep">•</span>
+            <span>5+ Years Experience</span>
+            <span class="dot-sep">•</span>
+            <span>Bengaluru, India</span>
+          </div>
+
+          <!-- Current status pill -->
+          <div class="hero-status-pill">
+            <span class="live-dot"></span>
+            <span>CURRENTLY SHIPPING AT <strong>POCKET FM</strong></span>
+          </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="scroll-down-wrap">
+          <span class="scroll-down-text">SCROLL DOWN</span>
+          <div class="scroll-down-line">
+            <span class="scroll-down-dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: SELECTED WORKS -->
+    <section class="section-block" id="works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">◦ 01 ◦ SELECTED WORKS</div>
+          <div class="section-title-row">
+            <h2 class="section-heading">
+              Engineering in <span class="serif-accent">action.</span>
+            </h2>
+            <p class="section-subtext">
+              High-velocity iOS systems, native macOS tooling &amp; autonomous AI developer utilities built for production precision.
+            </p>
+          </div>
+        </div>
+
+        <!-- Works Grid -->
+        <div class="works-grid">
+
+          <!-- Card 1: ShubhranshProxy -->
+          <article class="work-card">
+            <div class="work-card-inner">
+              <div class="work-card-visual bg-proxy">
+                <div class="visual-glow"></div>
+                <div class="visual-mockup">
+                  <div class="mockup-header">
+                    <span class="traffic-dot red"></span>
+                    <span class="traffic-dot yellow"></span>
+                    <span class="traffic-dot green"></span>
+                    <span class="mockup-title">ShubhranshProxy · Swift 6.0</span>
+                  </div>
+                  <div class="mockup-body">
+                    <div class="proxy-sidebar">
+                      <span class="mono-badge">API SESSIONS</span>
+                      <div class="mock-tree-node active"><span>GET</span> /v2/store/products</div>
+                      <div class="mock-tree-node"><span>POST</span> /v2/auth/verify-otp</div>
+                      <div class="mock-tree-node"><span>GET</span> /v1/config/remote</div>
+                    </div>
+                    <div class="proxy-main">
+                      <div class="proxy-stat-tag">SSL DECRYPTED · 200 OK</div>
+                      <div class="proxy-payload-preview">
+                        <code>{ "status": "success", "coins": 450, "hang_free": true }</code>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="work-card-content">
+                <div class="card-meta-top">
+                  <span class="work-index">01</span>
+                  <span class="work-year">2026 · FLAGSHIP OSS</span>
+                </div>
+                <h3 class="work-headline">
+                  ShubhranshProxy — Native macOS HTTP(S) Debugging Proxy
+                </h3>
+                <div class="work-pills">
+                  <span class="pill">Swift 6.0</span>
+                  <span class="pill">macOS Native</span>
+                  <span class="pill">SSL Decryption</span>
+                  <span class="pill">Map Local</span>
+                  <span class="pill">HAR Export</span>
+                </div>
+                <p class="work-desc">
+                  Engineered a native macOS proxy engine from scratch in pure Swift. Features intelligent domain grouping, selective SSL decryption, zero-config mobile traffic capture on the same Wi-Fi, mock breakpoint rewrites, and full HAR export — completely free and open source.
+                </p>
+                <div class="work-actions">
+                  <a href="https://shubhransh-gupta.github.io/ShubhranshProxy/" target="_blank" rel="noopener" class="btn-work-primary">
+                    <span>Explore Website</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                  <a href="https://github.com/shubhransh-gupta/ShubhranshProxy/releases/latest/download/ShubhranshProxy.dmg" target="_blank" rel="noopener" class="btn-work-secondary">
+                    <span>Download DMG</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: JSONLens -->
+          <article class="work-card">
+            <div class="work-card-inner">
+              <div class="work-card-visual bg-json">
+                <div class="visual-glow"></div>
+                <div class="visual-mockup json-mockup">
+                  <div class="mockup-header">
+                    <span class="traffic-dot red"></span>
+                    <span class="traffic-dot yellow"></span>
+                    <span class="traffic-dot green"></span>
+                    <span class="mockup-title">JSONLens · Private Playground</span>
+                  </div>
+                  <div class="json-mockup-body">
+                    <div class="json-code-pane">
+                      <pre><code>{
+  "user": "shubhransh",
+  "verified": true,
+  "telemetry": "0% telemetry"
+}</code></pre>
+                    </div>
+                    <div class="json-graph-pane">
+                      <div class="graph-pill">Tree Graph</div>
+                      <div class="graph-pill active">Semantic Diff</div>
+                      <div class="graph-pill">API Client</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="work-card-content">
+                <div class="card-meta-top">
+                  <span class="work-index">02</span>
+                  <span class="work-year">2026 · DEVELOPER TOOL</span>
+                </div>
+                <h3 class="work-headline">
+                  JSONLens — Fast, Privacy-First Client-Side JSON Playground
+                </h3>
+                <div class="work-pills">
+                  <span class="pill">TypeScript</span>
+                  <span class="pill">100% Client-Side</span>
+                  <span class="pill">Zero Telemetry</span>
+                  <span class="pill">Visual Graphs</span>
+                </div>
+                <p class="work-desc">
+                  A high-velocity, privacy-first developer workbench. Formats, validates, and visualizes complex payloads with interactive tree, diagram, and table graph views. Features dual-pane semantic diffs, instant Swift/TypeScript code generation, and Postman-style API testing with zero server logging.
+                </p>
+                <div class="work-actions">
+                  <a href="https://shubhransh-gupta.github.io/jsonlens/" target="_blank" rel="noopener" class="btn-work-primary">
+                    <span>Launch JSONLens</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                  <a href="https://github.com/shubhransh-gupta/jsonlens" target="_blank" rel="noopener" class="btn-work-secondary">
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: MirrorLock -->
+          <article class="work-card">
+            <div class="work-card-inner">
+              <div class="work-card-visual bg-mirror">
+                <div class="visual-glow"></div>
+                <div class="visual-mockup mirror-mockup">
+                  <div class="mirror-overlay-badge">
+                    <span class="lock-icon">🔒</span>
+                    <span class="lock-text">INPUT HARD-LOCKED (CGEventTap)</span>
+                  </div>
+                  <div class="mirror-screen-sample">
+                    <div class="terminal-line"><span class="t-prompt">$</span> claude code --autonomous</div>
+                    <div class="terminal-line t-cyan">→ Refactoring GCD queues to Swift 6 Actors...</div>
+                    <div class="terminal-line t-green">✓ Build succeeded · 0 warnings</div>
+                  </div>
+                  <div class="touchid-pill">Touch ID to Unlock</div>
+                </div>
+              </div>
+              <div class="work-card-content">
+                <div class="card-meta-top">
+                  <span class="work-index">03</span>
+                  <span class="work-year">2026 · AI WORKFLOWS</span>
+                </div>
+                <h3 class="work-headline">
+                  MirrorLock — Botsitting Utility for Autonomous AI Agents
+                </h3>
+                <div class="work-pills">
+                  <span class="pill">Swift</span>
+                  <span class="pill">macOS AppKit</span>
+                  <span class="pill">CGEventTap</span>
+                  <span class="pill">Touch ID API</span>
+                </div>
+                <p class="work-desc">
+                  Enables developers to lock their Mac while watching AI agents (Cursor, Claude Code, Codex) run autonomously. Provides a live desktop mirror behind a dim overlay with kernel-level keyboard/mouse input suppression via CGEventTap and instant Touch ID unlock.
+                </p>
+                <div class="work-actions">
+                  <a href="https://shubhransh-gupta.github.io/mirrorLock/" target="_blank" rel="noopener" class="btn-work-primary">
+                    <span>Explore Website</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                  <a href="https://github.com/shubhransh-gupta/mirrorLock/releases/latest" target="_blank" rel="noopener" class="btn-work-secondary">
+                    <span>Download App</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: toknt -->
+          <article class="work-card">
+            <div class="work-card-inner">
+              <div class="work-card-visual bg-toknt">
+                <div class="visual-glow"></div>
+                <div class="toknt-metric-box">
+                  <span class="toknt-num">-42%</span>
+                  <span class="toknt-label">TOKEN CONTEXT REDUCTION</span>
+                  <div class="toknt-bar"><div class="toknt-bar-fill"></div></div>
+                </div>
+              </div>
+              <div class="work-card-content">
+                <div class="card-meta-top">
+                  <span class="work-index">04</span>
+                  <span class="work-year">2026 · AI CONTEXT OPTIMIZATION</span>
+                </div>
+                <h3 class="work-headline">
+                  toknt — Local-First AI Context &amp; Token Optimizer
+                </h3>
+                <div class="work-pills">
+                  <span class="pill">100% SwiftUI</span>
+                  <span class="pill">macOS Menu Bar</span>
+                  <span class="pill">AST Deduplication</span>
+                  <span class="pill">Zero Telemetry</span>
+                </div>
+                <p class="work-desc">
+                  A high-efficiency menu-bar token optimizer for AI coding agents. Deduplicates redundant codebase context and strips boilerplate AST payloads while keeping multi-step reasoning intelligence intact.
+                </p>
+                <div class="work-actions">
+                  <a href="https://github.com/shubhransh-gupta/toknt" target="_blank" rel="noopener" class="btn-work-primary">
+                    <span>View on GitHub</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: ABOUT / STORY -->
+    <section class="section-block section-alt" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">◦ 02 ◦ ABOUT</div>
+          <div class="section-title-row">
+            <h2 class="section-heading">
+              Hey, nice to <span class="serif-accent">meet you.</span>
+            </h2>
+            <p class="section-subtext">
+              A quick window into how I build — and what drives my engineering every morning.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-split-stage">
+          <!-- Left: Real Studio Photo -->
+          <div class="about-photo-wrapper">
+            <div class="about-photo-frame">
+              <img src="assets/about-portrait.png" alt="Shubhransh Gupta — Senior iOS Engineer" class="about-portrait-img">
+              <div class="photo-ambient-border"></div>
+            </div>
+            <div class="about-location-pill">
+              <span class="loc-dot"></span>
+              <span>Based in Bengaluru, India</span>
+            </div>
+          </div>
+
+          <!-- Right: Narrative Copy -->
+          <div class="about-narrative-copy">
+            <p class="lead-text">
+              I started my engineering journey fascinated by how hardware meets software, earned my Computer Science degree from <strong>BNM Institute of Technology (GPA 8.45)</strong>, and ranked <strong>#1 college-wide on GeeksForGeeks</strong>.
+            </p>
+            <p>
+              Today, I'm a <strong>Senior iOS Engineer</strong> who treats mobile apps not as static UI canvases, but as real-time, high-concurrency distributed engines. Across India's top consumer tech ecosystems — from <strong>Pocket FM</strong> and <strong>Navi</strong> to <strong>MakeMyTrip</strong> and <strong>Nuclei</strong> — I have engineered features that serve 50M+ users daily with <strong>99.9% crash-free stability</strong> and <strong>100% hang-free responsiveness</strong>.
+            </p>
+            <p>
+              When I'm not profiling memory allocations or sanitizing GCD queues, I build developer tooling like <strong>ShubhranshProxy</strong>, <strong>JSONLens</strong>, and <strong>MirrorLock</strong> — solving deep ergonomic bottlenecks for mobile developers and AI coding agents.
+            </p>
+
+            <!-- Quick Metrics Grid -->
+            <div class="about-metrics-row">
+              <div class="metric-item">
+                <span class="m-val">5+</span>
+                <span class="m-lbl">Years Experience</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val">99.9%</span>
+                <span class="m-lbl">Crash-Free Scale</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val">50M+</span>
+                <span class="m-lbl">Users Impacted</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val">100%</span>
+                <span class="m-lbl">Hang-Free Audited</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: THE METHOD / PILLARS -->
+    <section class="section-block" id="method">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">◦ 03 ◦ THE METHOD</div>
+          <div class="section-title-row">
+            <h2 class="section-heading">
+              The Primer for <span class="serif-accent">Production Scale.</span>
+            </h2>
+            <p class="section-subtext">
+              Engineering guidelines honed across high-concurrency production systems and millions of daily sessions.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4-Card Method Grid -->
+        <div class="method-grid">
+
+          <div class="method-card">
+            <div class="method-top">
+              <span class="method-num">01 · MINDSET</span>
+            </div>
+            <h3 class="method-title">Swift-First Concurrency</h3>
+            <p class="method-desc">
+              Designing for asynchronous safety, not guesswork. I architect with modern Swift 6.0 Actors, Structured Concurrency (<code>TaskGroup</code>, <code>AsyncSequence</code>), eliminating thread explosion and mutual exclusion deadlocks.
+            </p>
+            <div class="method-tags">
+              <span>Swift 6.0</span>
+              <span>Actors</span>
+              <span>Data-Race Safety</span>
+            </div>
+          </div>
+
+          <div class="method-card">
+            <div class="method-top">
+              <span class="method-num">02 · PERFORMANCE</span>
+            </div>
+            <h3 class="method-title">100% Hang-Free &amp; 99.9% Crash-Free</h3>
+            <p class="method-desc">
+              Obsessed with main-thread sanitation. Utilizing Xcode Instruments, Allocations, and Time Profiler to purge retain cycles, offload expensive parsing to background QoS queues, and lock in 120Hz ProMotion fluid rendering.
+            </p>
+            <div class="method-tags">
+              <span>Hang Detection</span>
+              <span>Instruments</span>
+              <span>Main Thread Sanitization</span>
+            </div>
+          </div>
+
+          <div class="method-card">
+            <div class="method-top">
+              <span class="method-num">03 · ARCHITECTURE</span>
+            </div>
+            <h3 class="method-title">Modular SDKs &amp; Clean DI</h3>
+            <p class="method-desc">
+              I build scalable systems designed for fast developer handoffs. Decoupling feature pods via Swift Package Manager (SPM), Swinject dependency injection containers, and Coordinator navigation graphs.
+            </p>
+            <div class="method-tags">
+              <span>Swinject DI</span>
+              <span>SPM Modules</span>
+              <span>SceneDelegate</span>
+            </div>
+          </div>
+
+          <div class="method-card">
+            <div class="method-top">
+              <span class="method-num">04 · IMPACT</span>
+            </div>
+            <h3 class="method-title">Guided by Business Conversion</h3>
+            <p class="method-desc">
+              A clean architecture only matters if it moves the needle. From Store Revamp V2 with StoreKit 2 &amp; Juspay at Pocket FM to Zero Cancellation at MakeMyTrip, I build features that directly elevate retention and monetization.
+            </p>
+            <div class="method-tags">
+              <span>StoreKit 2</span>
+              <span>Juspay Gateway</span>
+              <span>Funnel Optimization</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: EXPERIENCE TIMELINE -->
+    <section class="section-block section-alt" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">◦ 04 ◦ EXPERIENCE</div>
+          <div class="section-title-row">
+            <h2 class="section-heading">
+              A record of <span class="serif-accent">high-scale chapters.</span>
+            </h2>
+            <p class="section-subtext">
+              Shifting contexts, evolving scale, different teams — all driving toward rock-solid stability.
+            </p>
+          </div>
+        </div>
+
+        <!-- Vertical Timeline Stack -->
+        <div class="experience-timeline">
+
+          <!-- Item 1: Pocket FM -->
+          <article class="timeline-card current-job">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta-col">
+              <span class="time-range">08/2026 — PRESENT</span>
+              <span class="status-badge-current">CURRENT</span>
+            </div>
+            <div class="timeline-body-col">
+              <div class="job-header">
+                <h3 class="company-name">Pocket FM</h3>
+                <span class="role-title">Senior Software Engineer (SDE 2) · Audio Streaming Tech</span>
+              </div>
+              <div class="job-stat-highlight">
+                <span class="stat-badge">100% HANG-FREE STORE REVAMP V2 &amp; 99.9% CRASH-FREE</span>
+              </div>
+              <ul class="job-bullets">
+                <li>
+                  Spearheaded the complete end-to-end architecture and implementation of <strong>Store Revamp V2</strong>, enabling seamless coin purchases via Apple In-App Purchase (StoreKit 2), Juspay gateway integration, and rewarded ad unlock flows with rich fluid animations.
+                </li>
+                <li>
+                  Eliminated UI thread bottlenecks through rigorous <strong>hang detection, thread sanitization, and GCD queue profiling</strong>, achieving 100% hang-free performance and maintaining <strong>99.9% crash-free sessions</strong> at massive audio streaming scale.
+                </li>
+                <li>
+                  Overhauled <strong>Notification &amp; Tracking Permissions</strong>, implementing privacy-compliant telemetry to diagnose real-time hangs and crashes while driving higher user opt-in for episodic content releases.
+                </li>
+                <li>
+                  Re-engineered <strong>Profile Revamp V2</strong> featuring dual-channel OTP verification across email and phone, streamlining listener onboarding and reinforcing account security.
+                </li>
+              </ul>
+              <div class="job-tech-tags">
+                <span>Swift 6.0</span>
+                <span>StoreKit 2</span>
+                <span>Juspay SDK</span>
+                <span>Rewarded Ads</span>
+                <span>Hang Profiling</span>
+                <span>GCD Thread Sanitization</span>
+                <span>Firebase Crashlytics</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2: Navi -->
+          <article class="timeline-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta-col">
+              <span class="time-range">05/2025 — 03/2026</span>
+              <span class="status-badge-past">FINTECH</span>
+            </div>
+            <div class="timeline-body-col">
+              <div class="job-header">
+                <h3 class="company-name">Navi</h3>
+                <span class="role-title">Software Development Engineer 2 · High-Scale FinTech</span>
+              </div>
+              <ul class="job-bullets">
+                <li>
+                  Dramatically improved application scalability and modular lifecycle separation by migrating legacy AppDelegate lifecycle to <strong>SceneDelegate architecture</strong>.
+                </li>
+                <li>
+                  Enabled deep-linking, contextual shortcuts, and faster content discovery by implementing <strong>CoreSpotlight-based search indexing</strong> directly into iOS system search.
+                </li>
+                <li>
+                  Enhanced architectural testability and clean domain boundaries by implementing runtime and compile-time dependency injection using <strong>Swinject</strong>.
+                </li>
+                <li>
+                  Awarded <strong>Best Innovative Project at Navi Hackathon</strong> for conceiving and architecting <strong>Cobalion</strong>, an AI-driven regulatory compliance parsing platform.
+                </li>
+              </ul>
+              <div class="job-tech-tags">
+                <span>Swift</span>
+                <span>SceneDelegate</span>
+                <span>CoreSpotlight</span>
+                <span>Swinject (DI)</span>
+                <span>Fintech UPI</span>
+                <span>Unit Testing</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3: MakeMyTrip -->
+          <article class="timeline-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta-col">
+              <span class="time-range">01/2024 — 05/2025</span>
+              <span class="status-badge-past">TRAVEL</span>
+            </div>
+            <div class="timeline-body-col">
+              <div class="job-header">
+                <h3 class="company-name">MakeMyTrip</h3>
+                <span class="role-title">Senior Software Engineer · Consumer Travel Platform</span>
+              </div>
+              <ul class="job-bullets">
+                <li>
+                  Improved user conversion and revenue metrics by developing high-impact customer features like <strong>Zero Cancellation, Free Date Change Insurance</strong>, and advanced Sort &amp; Filter using SwiftUI.
+                </li>
+                <li>
+                  Accelerated cross-team feature integration by architecting and implementing the <strong>Unified Flights SDK</strong> using SPM and CocoaPods across multiple architectural patterns.
+                </li>
+                <li>
+                  Increased pod velocity and code quality by leading an iOS pod and conducting technical knowledge-sharing workshops on modern Swift patterns and memory management.
+                </li>
+              </ul>
+              <div class="job-tech-tags">
+                <span>SwiftUI &amp; UIKit</span>
+                <span>SPM &amp; CocoaPods</span>
+                <span>Unified Flights SDK</span>
+                <span>Combine</span>
+                <span>Pod Leadership</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4: Nuclei -->
+          <article class="timeline-card">
+            <div class="timeline-dot"></div>
+            <div class="timeline-meta-col">
+              <span class="time-range">05/2021 — 12/2023</span>
+              <span class="status-badge-past">BANKING</span>
+            </div>
+            <div class="timeline-body-col">
+              <div class="job-header">
+                <h3 class="company-name">Nuclei</h3>
+                <span class="role-title">iOS Developer · SDE 1 · Enterprise Banking SDKs</span>
+              </div>
+              <ul class="job-bullets">
+                <li>
+                  Delivered mission-critical mobile banking capabilities including <strong>Fund Transfer, Scan &amp; Pay, and seamless customer onboarding</strong> across top tier-1 banks.
+                </li>
+                <li>
+                  Achieved full national regulatory compliance by integrating <strong>UPI using the NPCI Common Library (CL)</strong> and successfully navigating stringent security certifications.
+                </li>
+                <li>
+                  Optimized local offline caching and data integrity by refactoring CoreData migrations, background context concurrency, and database synchronization routines.
+                </li>
+              </ul>
+              <div class="job-tech-tags">
+                <span>Swift</span>
+                <span>NPCI UPI Library</span>
+                <span>CoreData Concurrency</span>
+                <span>Banking Security</span>
+                <span>Scan &amp; Pay</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: OUTSIDE THE CODEBASE (Bento Grid) -->
+    <section class="section-block" id="beyond">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">◦ 05 ◦ OUTSIDE THE CODEBASE</div>
+          <div class="section-title-row">
+            <h2 class="section-heading">
+              When the terminal is <span class="serif-accent">closed.</span>
+            </h2>
+            <p class="section-subtext">
+              Because the best software breakthroughs usually hit when exploring beyond the day job.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="bento-grid">
+
+          <div class="bento-cell bento-tall">
+            <span class="bento-category">OPEN SOURCE CRAFT</span>
+            <h3 class="bento-title">Developer Tooling Obsession</h3>
+            <p class="bento-desc">
+              Building native tools that solve real pain points — like <strong>ShubhranshProxy</strong> for SSL debugging and <strong>MirrorLock</strong> for botsitting autonomous AI agents.
+            </p>
+            <div class="bento-code-snippet">
+              <code>git clone https://github.com/shubhransh-gupta/...</code>
+            </div>
+          </div>
+
+          <div class="bento-cell">
+            <span class="bento-category">ACADEMIC FOUNDATION</span>
+            <h3 class="bento-title">Competitive Problem Solving</h3>
+            <p class="bento-desc">
+              Ranked #1 College-Wide on GeeksForGeeks (2021) and Champion at Innovative Project Labs (2018) at BNM Institute of Technology.
+            </p>
+          </div>
+
+          <div class="bento-cell">
+            <span class="bento-category">AI WORKFLOWS</span>
+            <h3 class="bento-title">Agentic Harnesses &amp; Tool Calling</h3>
+            <p class="bento-desc">
+              Exploring multi-agent architectures (Scavengers Assemble) connecting Claude, Gemini, and GPT-4 with autonomous code execution.
+            </p>
+          </div>
+
+          <div class="bento-cell bento-wide">
+            <span class="bento-category">CREATIVE EXPERIMENTS</span>
+            <h3 class="bento-title">Courier City — 3D Browser Simulation</h3>
+            <p class="bento-desc">
+              Synthesizing Three.js, Cannon-ES physics, and procedural terrain to render open-world Bangalore landmarks right in the browser with zero downloads.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: TESTIMONIALS / ECHOES -->
+    <section class="section-block section-alt" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">◦ 06 ◦ ECHOES FROM THE WORKPLACE</div>
+          <div class="section-title-row">
+            <h2 class="section-heading">
+              What the people I've <span class="serif-accent">shipped with say.</span>
+            </h2>
+            <p class="section-subtext">
+              Direct recommendations from engineering leads, managers, and collaborators on LinkedIn.
+            </p>
+          </div>
+        </div>
+
+        <!-- Draggable Marquee -->
+        <div class="marquee-wrapper" id="marqueeWrapper">
+          <div class="marquee-track" id="marqueeTrack">
+
+            <!-- Card 1: Shani -->
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p class="t-quote">
+                "I've had the pleasure of working alongside Shubhransh at MakeMyTrip, and I can confidently say that he's one of the most dedicated and resourceful professionals I've worked with. Whether it's tackling complex challenges, collaborating across teams, or bringing new ideas to the table, Shubhransh consistently brings a positive attitude and a strong work ethic."
+              </p>
+              <div class="t-author">
+                <div class="t-avatar">SV</div>
+                <div>
+                  <strong class="t-name">Shani Vishwakarma</strong>
+                  <span class="t-role">MakeMyTrip · iOS Pod Lead</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Harsh -->
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p class="t-quote">
+                "I had the pleasure of working with Shubhransh on the flight unification task, and his contributions were truly outstanding. He tackled complex challenges with ease, especially at the kernel level, where his deep understanding of concurrency stood out. What sets Shubhransh apart is his ability to break down intricate problems and deliver clear, effective implementations."
+              </p>
+              <div class="t-author">
+                <div class="t-avatar">HC</div>
+                <div>
+                  <strong class="t-name">Harsh Chauhan</strong>
+                  <span class="t-role">MakeMyTrip · Flight Unification Engine</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Pratyush -->
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p class="t-quote">
+                "I had the pleasure of working with Shubhransh at MakeMyTrip in the Hotels domain, and I was consistently impressed by his deep understanding of iOS development and exceptional problem-solving skills. Whether tackling complex architectural challenges or fine-tuning UI/UX interactions, he always brought a thoughtful, detail-oriented approach."
+              </p>
+              <div class="t-author">
+                <div class="t-avatar">PC</div>
+                <div>
+                  <strong class="t-name">Pratyush Chaser</strong>
+                  <span class="t-role">MakeMyTrip · Hotels</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Shubham -->
+            <div class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p class="t-quote">
+                "Shubhransh consistently demonstrated a high level of skill in every task he undertook across the Fund Transfer and UPI modules. Proactive and ready to take leadership whenever necessary, he converts business requirements into robust code very easily and readily. I am confident that he will continue to be an asset to any company he joins."
+              </p>
+              <div class="t-author">
+                <div class="t-avatar">SK</div>
+                <div>
+                  <strong class="t-name">Shubham Kushwaha</strong>
+                  <span class="t-role">Nuclei · Fund Transfer &amp; UPI</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="marquee-hint">
+          <span>← Drag or swipe horizontally to explore recommendations →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 07: CONTACT / CTA -->
+    <section class="section-block section-cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <div class="section-tag">◦ 07 ◦ LET'S BUILD SOMETHING</div>
+          <h2 class="cta-quote">
+            "The best software architectures are decisions <span class="serif-accent">worth defending</span> — and the rest is just syntax."
+          </h2>
+
+          <div class="cta-actions-row">
+            <a href="mailto:gupta.shubhransh@gmail.com" class="cta-pill-btn primary">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Email Me</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/shubhransh-gupta/" target="_blank" rel="noopener" class="cta-pill-btn">
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/shubhransh-gupta" target="_blank" rel="noopener" class="cta-pill-btn">
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://medium.com/@Shubhransh-Gupta" target="_blank" rel="noopener" class="cta-pill-btn">
+              <span>Medium</span>
+            </a>
+
+            <a href="assets/resume/Shubhransh-Gupta-Resume.pdf" download="Shubhransh-Gupta-Resume.pdf" class="cta-pill-btn">
+              <span>Download Résumé</span>
+            </a>
+          </div>
+
+          <div class="cta-copy-email-bar">
+            <span>Direct Transmission:</span>
+            <button class="copy-email-btn" id="copyEmailBtn" data-email="gupta.shubhransh@gmail.com">
+              <span id="copyEmailText">gupta.shubhransh@gmail.com</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="page-footer">
+          <div class="footer-left">
+            <span>© SHUBHRANSH GUPTA · DESIGNED &amp; BUILT IN 2026</span>
+          </div>
+          <div class="footer-right">
+            <span>SENIOR IOS ENGINEER · BENGALURU, INDIA</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
   <script src="main.js"></script>
 </body>
 </html>
