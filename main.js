@@ -306,68 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ── 10. TESTIMONIALS DRAGGABLE & AUTO-SCROLL MARQUEE ───────────────────
-  const marqueeWrapper = document.getElementById('marqueeWrapper');
-  const marqueeTrack = document.getElementById('marqueeTrack');
-
-  if (marqueeWrapper && marqueeTrack) {
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
-    let autoScrollSpeed = 0.6;
-    let isPaused = false;
-
-    // Clone cards for seamless looping
-    const originalCards = Array.from(marqueeTrack.children);
-    originalCards.forEach((c) => {
-      const clone = c.cloneNode(true);
-      marqueeTrack.appendChild(clone);
-    });
-
-    // Auto-scroll loop
-    function autoScroll() {
-      if (!isPaused && !isDown) {
-        marqueeWrapper.scrollLeft += autoScrollSpeed;
-        if (marqueeWrapper.scrollLeft >= marqueeTrack.scrollWidth / 2) {
-          marqueeWrapper.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    }
-    requestAnimationFrame(autoScroll);
-
-    // Pause on hover
-    marqueeWrapper.addEventListener('mouseenter', () => { isPaused = true; });
-    marqueeWrapper.addEventListener('mouseleave', () => { isPaused = false; });
-
-    // Drag interactions (Mouse)
-    marqueeWrapper.addEventListener('mousedown', (e) => {
-      isDown = true;
-      isPaused = true;
-      startX = e.pageX - marqueeWrapper.offsetLeft;
-      scrollLeft = marqueeWrapper.scrollLeft;
-    });
-
-    marqueeWrapper.addEventListener('mouseleave', () => {
-      isDown = false;
-    });
-
-    marqueeWrapper.addEventListener('mouseup', () => {
-      isDown = false;
-    });
-
-    marqueeWrapper.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - marqueeWrapper.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      marqueeWrapper.scrollLeft = scrollLeft - walk;
-    });
-
-    // Touch support (Mobile)
-    marqueeWrapper.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
-    marqueeWrapper.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
-  }
+  // ── 10. (Section 06 migrated to 3D Hologram Cards Grid) ────────────────
 
 
   // ── 11. TRANSMISSION COPY EMAIL ────────────────────────────────────────
