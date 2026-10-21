@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Canonical Sitemap & AI LLM Discovery Directives
+Sitemap: https://shubhransh-gupta.is-a.dev/sitemap.xml
+llms-txt: https://shubhransh-gupta.is-a.dev/llms.txt
