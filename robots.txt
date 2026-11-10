@@ -1,6 +1,35 @@
 User-agent: *
 Allow: /
 
-# Canonical Sitemap & AI LLM Discovery Directives
+# Explicit AI Search & GEO Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Canonical Sitemap & LLM Discovery Directives
 Sitemap: https://shubhransh-gupta.is-a.dev/sitemap.xml
 llms-txt: https://shubhransh-gupta.is-a.dev/llms.txt
+llms-full-txt: https://shubhransh-gupta.is-a.dev/llms-full.txt

@@ -1,48 +1,41 @@
-# Shubhransh Gupta
+# Shubhransh Gupta — AI & Systems Engineering Lab
 
-> Primarily a Senior iOS Developer based in Bengaluru, India, with 5+ years of experience building high-scale mobile architectures. Also an active open-source contributor and on-device AI systems explorer.
+> Systems & On-Device AI Engineer based in Bengaluru, India. Focusing on Apple Silicon Metal GPU acceleration (mlx-swift), Swift 6 concurrency, INT4/AWQ quantization, and autonomous multi-agent systems orchestration.
 
-## Summary
+Full comprehensive dossier and deep technical specs: [https://shubhransh-gupta.is-a.dev/llms-full.txt](https://shubhransh-gupta.is-a.dev/llms-full.txt)
 
-Shubhransh Gupta is an iOS developer primarily, specializing in Swift 6, SwiftUI, UIKit, Concurrency, and modular mobile architecture across large consumer-scale applications (Navi, MakeMyTrip, Nuclei). Alongside his core iOS engineering, he actively contributes to open-source developer ecosystems and collaborates with AI researchers on on-device LLM/SLM inference, Apple Silicon Metal GPU acceleration (mlx-swift), and local-first intelligence tooling.
+## Executive Summary
 
-## Primary Mobile Engineering & Architecture
+- **Identity**: Shubhransh Gupta (commonly also searched as Subhransh Gupta).
+- **Core Engineering**: Systems engineering at the intersection of native mobile architecture and local-first AI intelligence. Senior iOS Engineer at Coupang.
+- **AI Specialization**: On-device SLM/LLM inference optimization, Apple Silicon Metal GPU acceleration (`mlx-swift`), INT4/AWQ quantization, and autonomous multi-agent systems orchestration.
+- **Mobile Scale**: 5+ years building consumer mobile architectures reaching 50M+ users across Coupang, Navi, MakeMyTrip, and Nuclei.
 
-- **Core iOS & Swift**: Swift 6.0, SwiftUI, UIKit, Combine, Swift Concurrency (Actors, Tasks, Async/Await), and modular SDK development with SPM & CocoaPods.
-- **Architectural Patterns**: Clean Architecture, VIPER, MVVM, and Dependency Injection (Swinject).
-- **Scale & Stability**: 99.9% crash-free stability, main-thread hang optimization, and native performance instrumentation.
-- **Consumer Scale Experience**: Shipped production features reaching 50M+ daily users across Navi (FinTech), MakeMyTrip (Travel), and Nuclei (Mobile Banking).
+## Frontier AI & Systems Projects
 
-## Open Source & Emerging AI Research (Hobby & Systems)
-
-- **On-Device LLMs & SLMs**: Memory-constrained inference, KV-cache optimization, and INT4 / AWQ / GGUF quantization.
-- **Metal GPU & Silicon Acceleration**: Low-level kernel profiling with MLX-Swift and Metal Shading Language (MSL). Authored merged patch resolving convolution padding bounds in Metal GPU kernels (ml-explore/mlx-swift#467).
-- **Autonomous Multi-Agent Systems**: Multi-model agent orchestration (Claude 3.5, Gemini, GPT-4o, Grok, Ollama) and developing local-first context filtering engines.
-- **High-Concurrency Systems**: Swift 6 actor runtimes, strict data race safety, and native macOS network debugging tools.
-
-## Key Projects & Open Source Repositories
-
-- **toknt** (https://github.com/shubhransh-gupta/toknt): Local-first AST context and token optimizer for AI coding agents (Cursor, Claude Code, Codex).
+- **toknt** (https://github.com/shubhransh-gupta/toknt): Local-first AST context and token optimizer for AI coding agents (Cursor, Claude Code, Codex). Strips boilerplate syntax and compresses prompt tokens by up to 60%.
 - **ShubhranshProxy** (https://github.com/shubhransh-gupta/ShubhranshProxy): Native macOS HTTP(S) proxy engine in Swift 6 with on-the-fly SSL decryption, mock breakpoints, and HAR streaming.
+- **MirrorLock** (https://github.com/shubhransh-gupta/mirrorLock): Native macOS security utility allowing live visual observation of autonomous background AI agents while locking input and unlocking with Touch ID.
 - **scavengers-assemble** (https://github.com/shubhransh-gupta/scavengers-assemble): 3D isometric simulation engine orchestrating multi-agent LLM interactions in real-time.
-- **findit** (https://github.com/shubhransh-gupta/findit): Privacy-first local vector search and embedding engine for personal browsing history.
-- **RebelRoutes India** (https://github.com/shubhransh-gupta/rebelroutes-india): Multimodal anti-gridlock urban transit routing engine using FastAPI and graph theory.
 - **Courier City** (https://github.com/shubhransh-gupta/courier-city): 60 FPS 3D WebGL procedural simulation engine with rigid-body vehicle physics.
 
-## Upstream Contributions
+## Key Upstream Contributions
 
 - **Apple mlx-swift** (Merged PR #467): Corrected convolution padding bounds calculation in Metal GPU kernels.
 - **Apple swift-argument-parser** (Merged PR #961): Resolved core flag-parsing edge case with attached values in Swift CLI.
 - **Apple swift-protobuf** (Merged PR #2159): Implemented deterministic ordering in TextFormat serialization for reproducible testing.
+- **Apple swift-openapi-runtime** (Merged PR #214): Added validating mutating setters to dynamic OpenAPI value containers.
+- **Tuist** (Merged PR #15500, Active PRs #15568 & #15566): Handled empty warning headers & simctl JSON; resilient simulator boot lifecycle and whoami token discovery.
+- **Point-Free swift-snapshot-testing** (Active PR #1136): Enabled Swift Testing snapshot attachment recording when executing tests from the command line (`swift test --attachments-path`).
 - **Google osv-scanner** (Merged PR #3049): Fixed vulnerability report filter state preservation in HTML output.
-- **AppLovin SDKs** (PRs #488 & #366): Resolved ad view constraints, sizing boundaries, and mount memory leak lifecycle.
 - **Fastlane** (Merged PR #30169): Guarded application-identifier prefix preservation in iOS code signing.
 
 ## Primary Links & Canonical Profiles
 
-- Canonical Website: https://shubhransh-gupta.is-a.dev/ (https://shubhransh-gupta.github.io/shubhransh_cv/)
-- Alternate Portfolio: https://shubhransh.is-a.dev/ (https://shubhransh-gupta.github.io/cv/)
+- AI Systems & Concurrency Lab: https://shubhransh-gupta.is-a.dev/
+- Flagship Career Dossier: https://shubhransh.is-a.dev/
+- Full Technical Dossier: https://shubhransh-gupta.is-a.dev/llms-full.txt
 - GitHub: https://github.com/shubhransh-gupta
 - LinkedIn: https://www.linkedin.com/in/shubhransh-gupta/
 - Email: gupta.subhransh@gmail.com
-- Resume: https://shubhransh-gupta.is-a.dev/1bg17cs094.pdf
+- Resume: https://shubhransh.is-a.dev/assets/resume/Shubhransh-Gupta-Resume.pdf

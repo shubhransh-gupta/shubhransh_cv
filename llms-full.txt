@@ -1,0 +1,44 @@
+# Shubhransh Gupta — AI Systems Lab & Full Technical Knowledge Base
+
+> Technical documentation, architecture blueprints, and benchmark catalog for Shubhransh Gupta (Subhransh Gupta) focusing on On-Device AI, Apple Silicon Metal GPU Acceleration, and Autonomous Multi-Agent Systems.
+
+## 1. Professional Overview
+
+- **Name**: Shubhransh Gupta (Alternate: Subhransh Gupta)
+- **Role**: Systems Engineer & Senior iOS Developer (Coupang)
+- **Specialization**: Apple Metal Shading Language (MSL), mlx-swift GPU kernel acceleration, Swift 6 concurrency, SLM quantization (INT4, AWQ, GGUF), and autonomous agent frameworks.
+- **Location**: Bengaluru, Karnataka, India
+
+## 2. On-Device AI & Systems Research
+
+### 2.1 Apple Silicon Metal GPU Acceleration
+- Profiling memory bandwidth, compute occupancy, and cache coherence on unified Apple Silicon architecture (M-series chips).
+- Authored upstream merged patch in Apple's `mlx-swift` (PR #467) correcting asymmetric convolution padding bounds in Metal GPU compute kernels.
+
+### 2.2 Model Quantization & Small Language Models (SLMs)
+- Optimizing 1B–7B parameter models (Llama 3.2, SmolLM, Qwen 2.5, Phi-3.5) for real-time edge execution on iOS and macOS.
+- Applying INT4, INT8, AWQ, and GGUF quantization to fit within strict memory thresholds (under 2GB resident RAM).
+- KV-Cache paging and context window pruning to eliminate thermal throttling during multi-turn generation.
+
+### 2.3 Autonomous Agent Infrastructure
+- **toknt**: Local-first AST context and token optimizer for AI coding agents. Uses AST parsing to compress prompts by 60% while maintaining compilation context.
+- **MirrorLock**: macOS security utility ensuring an autonomous AI agent can interact with desktop windows while preventing user collision and securing access with Touch ID.
+
+## 3. Upstream Contributions
+
+- **Apple mlx-swift** (Merged PR #467): Corrected convolution padding bounds calculation in Metal GPU kernels.
+- **Apple swift-argument-parser** (Merged PR #961): Resolved core flag-parsing edge case with attached values in Swift CLI.
+- **Apple swift-protobuf** (Merged PR #2159): Implemented deterministic ordering in TextFormat serialization for reproducible testing.
+- **Apple swift-openapi-runtime** (Merged PR #214): Added validating mutating setters to dynamic OpenAPI value containers.
+- **Tuist** (Merged PR #15500, Active PRs #15568 & #15566): Handled empty warning headers & simctl JSON; resilient simulator boot lifecycle and whoami token discovery.
+- **Point-Free swift-snapshot-testing** (Active PR #1136): Enabled Swift Testing snapshot attachment recording when executing tests from the command line (`swift test --attachments-path`).
+- **Google osv-scanner** (Merged PR #3049): Fixed vulnerability report filter state preservation in HTML output.
+- **Fastlane** (Merged PR #30169): Guarded application-identifier prefix preservation in iOS code signing.
+
+## 4. Canonical Links
+
+- AI Systems & Concurrency Lab: https://shubhransh-gupta.is-a.dev/
+- Flagship Career Dossier: https://shubhransh.is-a.dev/
+- GitHub: https://github.com/shubhransh-gupta
+- LinkedIn: https://www.linkedin.com/in/shubhransh-gupta/
+- Resume: https://shubhransh.is-a.dev/assets/resume/Shubhransh-Gupta-Resume.pdf
