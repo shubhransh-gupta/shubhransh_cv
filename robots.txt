@@ -1,11 +1,36 @@
 User-agent: *
 Allow: /
 
+# Standard Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: MSNBot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
 # Explicit AI Search & GEO Crawlers
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -14,13 +39,16 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot-Extended
-Allow: /
-
-User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: cohere-ai
@@ -29,7 +57,11 @@ Allow: /
 User-agent: FacebookBot
 Allow: /
 
-# Canonical Sitemap & LLM Discovery Directives
+User-agent: Bytespider
+Allow: /
+
+# Canonical Discovery Directives
 Sitemap: https://shubhransh-gupta.is-a.dev/sitemap.xml
+IndexNow: https://shubhransh-gupta.is-a.dev/e4f8d29b17c34b85a02196e873b5f94a.txt
 llms-txt: https://shubhransh-gupta.is-a.dev/llms.txt
 llms-full-txt: https://shubhransh-gupta.is-a.dev/llms-full.txt
