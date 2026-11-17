@@ -32,13 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const mod = await import('./vendor/tubes1.min.js');
       Ctor = mod.default || mod;
     } catch (err) {
-      try {
-        const mod = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
-        Ctor = mod.default || mod;
-      } catch (e) {
-        console.warn('Tube cursor module could not be loaded:', e);
-        return;
-      }
+      console.warn('Tube cursor module could not be loaded:', err);
+      return;
     }
 
     if (!Ctor) return;
